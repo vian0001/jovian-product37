@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+
+<style>
+.image-container {
+  margin: 30px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+  max-width: 100%;
+  position: relative;
+}
+
+.image-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 40px rgba(37, 99, 235, 0.4);
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: all 0.4s ease;
+}
+
+.image-container:hover img {
+  filter: brightness(1.1);
+}
+
+.image-caption {
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7), transparent);
+  padding: 15px 20px;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.image-container:hover .image-caption {
+  transform: translateY(0);
+}
+
+@keyframes loadProgress { 0% { width: 0%; } 100% { width: 100%; } }
+@keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
+{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+
+    /* Portfolio Button Styling */
+
+.portfolio-button {
+position: fixed;
+bottom: 30px;
+right: 30px;
+z-index: 1000;
+background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+color: var(--text-primary);
+border: none;
+border-radius: 50px;
+padding: 15px 25px;
+font-family: 'Inter', sans-serif;
+font-weight: 600;
+font-size: 1rem;
+cursor: pointer;
+box-shadow: 0 5px 20px rgba(37, 99, 235, 0.4);
+transition: all 0.3s ease;
+display: flex;
+align-items: center;
+gap: 10px;
+overflow: hidden;
+text-decoration: none;
+}
+.portfolio-button:hover {
+transform: translateY(-5px) scale(1.05);
+box-shadow: 0 8px 25px rgba(37, 99, 235, 0.6);
+}
+.portfolio-button::before {
+content: '';
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg,
+transparent,
+rgba(255, 255, 255, 0.2),
+transparent);
+animation: shineEffect 3s infinite;
+}
+.portfolio-icon {
+font-size: 1.2rem;
+animation: pulse 2s infinite;
+}
+@keyframes shineEffect {
+0% { left: -100%; }
+20% { left: 100%; }
+100% { left: 100%; }
+}
+@keyframes pulse {
+0% { transform: scale(1); }
+50% { transform: scale(1.2); }
+100% { transform: scale(1); }
+}
+.attention-ripple {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 100%;
+height: 100%;
+border-radius: 50px;
+border: 2px solid var(--accent-color);
+animation: ripple 2s infinite;
+opacity: 0;
+}
+@keyframes ripple {
+0% {
+width: 100%;
+height: 100%;
+opacity: 0.8;
+}
+100% {
+width: 200%;
+height: 200%;
+opacity: 0;
+}
+}
+{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #1e40af;
+    --accent-color: #06b6d4;
+    --success-color: #059669;
+    --warning-color: #d97706;
+    --danger-color: #dc2626;
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-card: #334155;
+    --bg-light: #f8fafc;
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --border-color: #475569;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Tech Background Pattern */
+.tech-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -3;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(220, 38, 38, 0.08) 0%, transparent 50%);
+}
+
+.circuit-pattern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    opacity: 0.03;
+    background-image: 
+        linear-gradient(90deg, var(--primary-color) 1px, transparent 1px),
+        linear-gradient(var(--primary-color) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: circuitMove 20s linear infinite;
+}
+
+@keyframes circuitMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+}
+
+/* Floating particles */
+.tech-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: float linear infinite;
+}
+
+@keyframes float {
+    0% { 
+        transform: translateY(100vh) translateX(0px);
+        opacity: 0;
+    }
+    10% { 
+        opacity: 0.6;
+    }
+    90% { 
+        opacity: 0.6;
+    }
+    100% { 
+        transform: translateY(-100px) translateX(100px);
+        opacity: 0;
+    }
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 100px 20px 80px;
+    background: linear-gradient(135deg, 
+        rgba(37, 99, 235, 0.1) 0%, 
+        rgba(6, 182, 212, 0.1) 50%, 
+        rgba(5, 150, 105, 0.1) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(37, 99, 235, 0.1),
+        transparent
+    );
+    animation: headerScan 10s linear infinite;
+}
+
+@keyframes headerScan {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.main-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color), var(--success-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+    text-shadow: 0 0 50px rgba(37, 99, 235, 0.3);
+    animation: titleGlow 4s ease-in-out infinite alternate;
+    position: relative;
+}
+
+@keyframes titleGlow {
+    0% { filter: brightness(1); }
+    100% { filter: brightness(1.2); }
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.author-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 600px;
+    margin: 0 auto;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    animation: cardFloat 6s ease-in-out infinite alternate;
+}
+
+@keyframes cardFloat {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-10px); }
+}
+
+.card-header {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.author-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    text-align: left;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.info-label {
+    font-weight: 600;
+    color: var(--primary-color);
+    min-width: 80px;
+    margin-right: 15px;
+}
+
+.info-value {
+    color: var(--text-primary);
+    font-weight: 400;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* Section styling */
+.section {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.05) 0%, 
+        rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 40px 0;
+    position: relative;
+    backdrop-filter: blur(20px);
+    transition: all 0.4s ease;
+    animation: sectionSlide 0.8s ease-out;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.section:nth-child(even) {
+    animation: sectionSlideRight 0.8s ease-out;
+}
+
+@keyframes sectionSlide {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes sectionSlideRight {
+    from { transform: translateX(50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.section:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 12px 48px rgba(37, 99, 235, 0.2);
+    transform: translateY(-8px);
+}
+
+.section-title {
+    font-family: 'Inter', sans-serif;
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    position: relative;
+    padding-left: 30px;
+}
+
+.section-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 30px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-radius: 2px;
+}
+
+/* Sub-section titles */
+.subsection-title {
+    font-family: 'Inter', sans-serif;
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.subsection-title::before {
+    content: '—'; /* Simple dash or similar indicator */
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
+/* Code blocks with typing effect */
+.code-terminal {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 25px;
+    margin: 25px 0;
+    font-family: 'JetBrains Mono', monospace;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.code-terminal::before {
+    content: '$ mikrotik@router:~';
+    color: var(--success-color);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.code-line {
+    color: var(--text-primary);
+    margin: 8px 0;
+    position: relative;
+    padding-left: 20px;
+    transition: all 0.3s ease;
+    opacity: 0;
+    width: fit-content;
+    font-family: 'JetBrains Mono', monospace;
+    white-space: pre;
+}
+
+.code-line.typing {
+    opacity: 1;
+    border-right: 2px solid var(--accent-color);
+    animation: blink-cursor 1s infinite;
+}
+
+.code-line.typed {
+    opacity: 1;
+    border-right: none;
+}
+
+@keyframes blink-cursor {
+    0%, 50% { border-color: var(--accent-color); }
+    51%, 100% { border-color: transparent; }
+}
+
+.code-line:hover {
+    background: rgba(37, 99, 235, 0.1);
+    padding-left: 25px;
+    border-radius: 6px;
+}
+
+.code-line::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-size: 0.8rem;
+}
+
+.comment {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.string {
+    color: var(--warning-color);
+    font-weight: 400;
+}
+
+.keyword {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Alert boxes */
+.tech-alert {
+    background: linear-gradient(135deg, 
+        rgba(37, 99, 235, 0.1), 
+        rgba(6, 182, 212, 0.1));
+    border: 1px solid var(--primary-color);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 12px;
+    padding: 25px;
+    margin: 30px 0;
+    position: relative;
+    animation: alertPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes alertPulse {
+    0% { box-shadow: 0 0 20px rgba(37, 99, 235, 0.2); }
+    100% { box-shadow: 0 0 30px rgba(37, 99, 235, 0.4); }
+}
+
+.tech-alert::before {
+    content: '🔧 TEKNOLOGI INFO';
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: var(--bg-primary);
+    color: var(--primary-color);
+    padding: 5px 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 20px;
+    border: 1px solid var(--primary-color);
+}
+
+.security-alert {
+    background: linear-gradient(135deg, 
+        rgba(220, 38, 38, 0.1), 
+        rgba(217, 119, 6, 0.1));
+    border: 1px solid var(--danger-color);
+    border-left: 4px solid var(--danger-color);
+    border-radius: 12px;
+    padding: 25px;
+    margin: 30px 0;
+    position: relative;
+    animation: securityBlink 2s ease-in-out infinite alternate;
+}
+
+@keyframes securityBlink {
+    0% { border-left-color: var(--danger-color); }
+    100% { border-left-color: var(--warning-color); }
+}
+
+.security-alert::before {
+    content: '🛡 KEAMANAN';
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: var(--bg-primary);
+    color: var(--danger-color);
+    padding: 5px 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 20px;
+    border: 1px solid var(--danger-color);
+}
+
+.conclusion-box {
+    background: linear-gradient(135deg, 
+        rgba(5, 150, 105, 0.1), 
+        rgba(37, 99, 235, 0.1));
+    border: 1px solid var(--success-color);
+    border-left: 4px solid var(--success-color);
+    border-radius: 12px;
+    padding: 25px;
+    margin: 30px 0;
+    position: relative;
+    animation: conclusionGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes conclusionGlow {
+    0% { box-shadow: 0 0 20px rgba(5, 150, 105, 0.2); }
+    100% { box-shadow: 0 0 30px rgba(5, 150, 105, 0.4); }
+}
+
+.conclusion-box::before {
+    content: '📝 KESIMPULAN';
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: var(--bg-primary);
+    color: var(--success-color);
+    padding: 5px 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 20px;
+    border: 1px solid var(--success-color);
+}
+
+/* Bibliography */
+.bibliography {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.08), 
+        rgba(255, 255, 255, 0.04));
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 40px;
+    margin-top: 60px;
+    backdrop-filter: blur(20px);
+    animation: biblioFade 1.5s ease-out;
+}
+
+@keyframes biblioFade {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.bibliography h3 {
+    color: var(--accent-color);
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.bibliography ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.bibliography li {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+    position: relative;
+    padding-left: 50px;
+}
+
+.bibliography li::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    font-size: 1.2rem;
+}
+
+.bibliography li:hover {
+    color: var(--text-primary);
+    transform: translateX(10px);
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(6, 182, 212, 0.05));
+}
+
+.bibliography a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    word-break: break-all;
+}
+
+.bibliography a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+/* Progress bar */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color), var(--success-color));
+    z-index: 1000;
+    transition: width 0.3s ease;
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .section {
+        padding: 25px 20px;
+        margin: 30px 0;
+    }
+    
+    .container {
+        padding: 40px 15px;
+    }
+
+    .code-terminal {
+        padding: 20px;
+        font-size: 0.9rem;
+    }
+
+    .author-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Smooth animations */
+.fade-in {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+ 
+img, a {
+-webkit-user-drag: none;
+-khtml-user-drag: none;
+-moz-user-drag: none;
+-o-user-drag: none;
+user-drag: none;
+}
+
+</style>
+
+<!-- Portfolio Button -->
+<a href="https://jovian-portofolio02.vercel.app/" target="_blank" class="portfolio-button">
+    <span class="portfolio-icon">🚀</span>
+    Lihat Portfolio Saya
+    <div class="attention-ripple"></div>
+</a>
+
+<!-- Tech Background -->
+<div class="tech-bg"></div>
+<div class="circuit-pattern"></div>
+<div class="tech-particles" id="techParticles"></div>
+
+<!-- Header -->
+<div class="header">
+    <h1 class="main-title">MIKROTIK ROUTEROS</h1>
+    <div class="subtitle">Memahami Konsep Dasar Routing IP</div>
+    <div class="subtitle">Konfigurasi dan implementasi routing pada perangkat MikroTik</div>
+    
+    <div class="author-card">
+        <div class="card-header">Informasi Penulis</div>
+        <div class="author-info">
+            <div class="info-item">
+                <span class="info-label">Penulis:</span>
+                <span class="info-value">Jovian Ekasakta</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Guru:</span>
+                <span class="info-value">Arief Wahyudin</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Kelas:</span>
+                <span class="info-value">XI TJKT 03</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Sekolah:</span>
+                <span class="info-value">Dwija Bhakti 01 Jombang</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+       <div class="section fade-in">
+            <h2 class="section-title"># topologi yang digunakan</h2>
+
+                                                <div class="image-container">
+          <img src="topologi.png" alt="SERVICE IP pada MikroTik RouterOS">
+          <div class="image-caption">Tampilan topologi di gns3</div>
+        </div>
+
+        </div>
+
+<div class="container">
+    <!-- Section: Konsep Dasar Routing IP -->
+    <div class="section fade-in">
+        <h2 class="section-title">1. KONSEP DASAR ROUTING IP</h2>
+        
+        <h3 class="subsection-title">Pengertian Routing IP</h3>
+        <p>Dari sumber MikroTik Documentation (2024), routing adalah proses pemilihan jalur untuk meneruskan paket data antar jaringan yang berbeda. Router MikroTik menjalankan proses ini dengan menyimpan semua informasi routing dalam database yang disebut RIB (Routing Information Base), yang berisi daftar entri untuk tujuan jaringan tertentu dan gateway mereka (alamat perangkat berikutnya dalam jalur atau next-hop).</p>
+        
+        <p>Dari sumber Tech Layer-X (2025), routing pada dasarnya merupakan proses pemilihan jalur untuk meneruskan paket data antar jaringan yang berbeda. MikroTik RouterOS mendukung baik static routing—di mana rute didefinisikan secara manual—maupun dynamic routing—di mana rute dipelajari dan diperbarui secara otomatis menggunakan protokol routing.</p>
+
+        
+        <h3 class="subsection-title">Komponen Utama Routing pada MikroTik</h3>
+        <p>Dari sumber MikroTik Documentation (2024), MikroTik RouterOS menggunakan beberapa komponen utama dalam proses routing:</p>
+        
+        <div class="code-terminal">
+            <div class="code-line"><span class="keyword">RIB (Routing Information Base)</span> - Berisi semua prefix yang dipelajari dari protokol routing</div>
+            <div class="code-line comment"># Mencakup rute dari jaringan terkoneksi (connected), statis, BGP, RIP, OSPF</div>
+            <div class="code-line"><span class="keyword">FIB (Forwarding Information Base)</span> - Tabel yang digunakan router untuk meneruskan paket</div>
+            <div class="code-line comment"># Berisi rute aktif yang dipilih dari RIB</div>
+            <div class="code-line"><span class="keyword">Route</span> - Entri individual dalam tabel routing yang menunjukkan jalur ke jaringan tujuan</div>
+            <div class="code-line comment"># Berisi dst-address, gateway, distance, dan properti lainnya</div>
+        </div>
+        
+        <p>Dari sumber Cyberlab Pacific (2025), MikroTik menggunakan CLI (Command Line Interface) yang kuat untuk mengonfigurasi routing, dengan perintah-perintah yang diatur dalam hierarki menu. Semua informasi routing dapat diakses melalui perintah dasar <code>/ip route</code> yang memungkinkan administrator untuk mengelola entri routing.</p>
+        
+        <div class="conclusion-box">
+            <p><strong>Kesimpulan:</strong> Dari 2 pendapat tersebut dapat disimpulkan bahwa routing pada MikroTik adalah proses pemilihan jalur untuk meneruskan paket data antar jaringan, yang dilakukan dengan bantuan database routing (RIB dan FIB). MikroTik RouterOS menawarkan fleksibilitas dengan mendukung baik static routing maupun dynamic routing, dan menyediakan interface CLI yang kuat untuk konfigurasi dan pengelolaan routing.</p>
+        </div>
+    </div>
+
+    <!-- Section: Static Routing -->
+    <div class="section fade-in">
+        <h2 class="section-title">2. STATIC ROUTING</h2>
+
+        
+                                                <div class="image-container">
+          <img src="no (1).png" alt="SERVICE IP pada MikroTik RouterOS">
+          <div class="image-caption">Tampilan topologi di gns3</div>
+        </div>
+        
+        <h3 class="subsection-title">Pengertian Static Routing</h3>
+        <p>Dari sumber MikroTik Wiki (2024), Static Routing adalah metode routing di mana rute ditentukan secara manual oleh administrator jaringan. Rute statis menentukan jalur yang akan digunakan paket data untuk mencapai jaringan tujuan tertentu. Pada MikroTik, rute statis memiliki prioritas lebih tinggi daripada rute dinamis karena memiliki nilai distance yang lebih rendah secara default.</p>
+        
+        <p>Dari sumber Tech Layer-X (2025), Static Routing paling cocok untuk jaringan kecil atau stabil di mana jalur jarang berubah. Metode ini memberikan kontrol penuh atas keputusan routing, tetapi memerlukan pembaruan manual ketika topologi jaringan berubah.</p>
+        
+        <h3 class="subsection-title">Konfigurasi Static Route di MikroTik</h3>
+        <p>Dari sumber MikroTik Documentation (2024), untuk menambahkan rute statis pada MikroTik, kita menggunakan perintah <code>/ip route add</code> dengan parameter dst-address dan gateway:</p>
+        
+        <div class="code-terminal">
+            <div class="code-line"><span class="keyword">/ip route add</span> dst-address=<span class="string">192.168.2.0/24</span> gateway=<span class="string">172.16.1.2</span></div>
+            <div class="code-line comment"># Menambahkan rute statis untuk jaringan 192.168.2.0/24 melalui gateway 172.16.1.2</div>
+            <div class="code-line"><span class="keyword">/ip route print</span></div>
+            <div class="code-line comment"># Perintah untuk melihat tabel routing</div>
+            <div class="code-line">Flags: D - dynamic; X - disabled, I - inactive, A - active; C - connect, S - static, r - rip, b - bgp, o - ospf, d - dhcp, v - vpn</div>
+            <div class="code-line"># DST-ADDRESS        GATEWAY         Distance</div>
+            <div class="code-line">0 DAC 10.1.1.0/24     ether1          0</div>
+            <div class="code-line">1 DAC 172.16.1.0/30   ether2          0</div>
+            <div class="code-line">2 DAC 192.168.1.0/24  bridge1         0</div>
+            <div class="code-line">3 AS  192.168.2.0/24  172.16.1.2      1</div>
+        </div>
+        
+        <p>Dari sumber RouterX (2025), untuk konfigurasi static route melalui Winbox GUI:</p>
+        <ol>
+            <li>Buka IP > Routes</li>
+            <li>Klik tombol + untuk menambahkan rute baru</li>
+            <li>Masukkan alamat tujuan (Dst. Address) dan netmask</li>
+            <li>Tentukan gateway (alamat IP router berikutnya)</li>
+            <li>Atur distance jika diperlukan (default: 1)</li>
+            <li>Klik Apply dan OK</li>
+        </ol>
+        
+        <div class="tech-alert">
+            <p>Flag pada output <code>/ip route print</code> memberikan informasi penting tentang status rute:</p>
+            <ul>
+                <li><strong>A</strong> - Active: Rute aktif dan digunakan</li>
+                <li><strong>S</strong> - Static: Rute yang dikonfigurasi secara manual</li>
+                <li><strong>D</strong> - Dynamic: Rute yang dipelajari dari protokol routing dinamis</li>
+                <li><strong>C</strong> - Connected: Rute yang terhubung langsung ke interface router</li>
+                <li><strong>X</strong> - Disabled: Rute yang dinonaktifkan</li>
+                <li><strong>I</strong> - Inactive: Rute tidak aktif karena berbagai alasan</li>
+            </ul>
+        </div>
+        
+        <h3 class="subsection-title">Default Route</h3>
+        <p>Dari sumber MikroTik Documentation (2024), Default Route adalah rute khusus dengan alamat tujuan <code>0.0.0.0/0</code>. Rute ini digunakan sebagai "jalur cadangan" atau "rute terakhir" ketika tidak ada rute spesifik lain yang cocok untuk paket data. Pada MikroTik, default route dapat ditambahkan dengan:</p>
+        
+        <div class="code-terminal">
+            <div class="code-line"><span class="keyword">/ip route add</span> dst-address=<span class="string">0.0.0.0/0</span> gateway=<span class="string">10.0.0.1</span></div>
+            <div class="code-line comment"># Menambahkan default route menuju gateway 10.0.0.1</div>
+            <div class="code-line"><span class="keyword">/ip route add</span> gateway=<span class="string">10.0.0.1</span></div>
+            <div class="code-line comment"># Alternatif - dst-address=0.0.0.0/0 dianggap default jika tidak diisi</div>
+        </div>
+        
+        <p>Dari sumber MikroTik Wiki (2024), Default Route adalah jalur yang akan digunakan untuk semua traffic yang tidak memiliki rute spesifik dalam tabel routing. Default route dikenal juga sebagai "gateway of last resort" dan sangat penting untuk konektivitas internet pada sebagian besar jaringan.</p>
+        
+        <div class="conclusion-box">
+            <p><strong>Kesimpulan:</strong> Dari 2 pendapat tersebut dapat disimpulkan bahwa Static Routing pada MikroTik adalah metode konfigurasi manual jalur yang akan digunakan untuk mengirimkan paket ke jaringan tujuan. Konfigurasi dapat dilakukan melalui CLI dengan perintah <code>/ip route add</code> atau melalui Winbox GUI. Default Route (0.0.0.0/0) merupakan komponen penting yang menentukan gateway untuk semua traffic yang tidak memiliki rute spesifik, biasanya digunakan untuk koneksi internet.</p>
+        </div>
+    </div>
+
+    <!-- Section: Dynamic Routing -->
+    <div class="section fade-in">
+        <h2 class="section-title">3. DYNAMIC ROUTING</h2>
+
+                                                        <div class="image-container">
+          <img src="no (2).png" 
+          alt="SERVICE IP pada MikroTik RouterOS">
+          <div class="image-caption">Tampilan topologi di gns3</div>
+        </div>
+        
+        <h3 class="subsection-title">Pengertian Dynamic Routing</h3>
+        <p>Dari sumber Tech Layer-X (2025), Dynamic Routing adalah metode routing di mana router secara otomatis belajar, memilih, dan memperbarui rute melalui protokol routing. Protokol ini memungkinkan router untuk berbagi informasi routing dengan router lain dan beradaptasi dengan perubahan topologi jaringan. MikroTik RouterOS mendukung beberapa protokol routing dinamis seperti RIP, OSPF, dan BGP.</p>
+        
+        <p>Dari sumber MikroTik Documentation (2024), pada Dynamic Routing, router secara otomatis bertukar informasi tentang jaringan yang mereka ketahui, dan berdasarkan informasi ini, mereka membangun dan memperbarui tabel routing mereka. Metode ini sangat berguna untuk jaringan yang besar dan kompleks di mana konfigurasi dan pemeliharaan rute statis akan sangat memakan waktu.</p>
+        
+        <h3 class="subsection-title">Protokol Dynamic Routing pada MikroTik</h3>
+        <p>Dari sumber Tech Layer-X (2025), MikroTik mendukung beberapa protokol routing dinamis:</p>
+        
+        <div class="code-terminal">
+            <div class="code-line"><span class="keyword">RIP (Routing Information Protocol)</span></div>
+            <div class="code-line comment"># Protokol distance-vector yang menggunakan jumlah hop sebagai metrik</div>
+            <div class="code-line comment"># Cocok untuk jaringan kecil dengan maksimal 15 hop</div>
+            <div class="code-line"><span class="keyword">OSPF (Open Shortest Path First)</span></div>
+            <div class="code-line comment"># Protokol link-state yang menggunakan algoritma Shortest Path First</div>
+            <div class="code-line comment"># Mendukung desain hierarkis dengan membagi jaringan menjadi area</div>
+            <div class="code-line"><span class="keyword">BGP (Border Gateway Protocol)</span></div>
+            <div class="code-line comment"># Protokol path-vector untuk routing antar autonomous system (AS)</div>
+            <div class="code-line comment"># Penting untuk routing skala internet dan organisasi dengan multiple IP publik</div>
+        </div>
+        
+        <p>Dari sumber MikroTik Wiki (2024), OSPF adalah protokol link-state yang mengurus rute dalam struktur jaringan dinamis yang dapat menggunakan berbagai jalur ke subjaringannya. Ini selalu memilih jalur terpendek ke subjaringan terlebih dahulu, dan setiap area menjalankan salinan terpisah dari algoritma routing link-state dasar.</p>
+        
+        <h3 class="subsection-title">Konfigurasi OSPF pada MikroTik</h3>
+        <p>Dari sumber MikroTik Wiki (2024), berikut adalah langkah-langkah dasar untuk mengonfigurasi OSPF:</p>
+        
+        <div class="code-terminal">
+            <div class="code-line"><span class="keyword">/routing ospf instance add</span> name=<span class="string">default</span> router-id=<span class="string">1.1.1.1</span></div>
+            <div class="code-line comment"># Membuat instance OSPF dengan router-id 1.1.1.1</div>
+            <div class="code-line"><span class="keyword">/routing ospf area add</span> name=<span class="string">backbone</span> area-id=<span class="string">0.0.0.0</span> instance=<span class="string">default</span></div>
+            <div class="code-line comment"># Menambahkan area backbone (area 0)</div>
+            <div class="code-line"><span class="keyword">/routing ospf interface-template add</span> area=<span class="string">backbone</span> networks=<span class="string">192.168.1.0/24</span></div>
+            <div class="code-line comment"># Menambahkan jaringan 192.168.1.0/24 ke area backbone</div>
+            <div class="code-line"><span class="keyword">/routing ospf interface-template add</span> area=<span class="string">backbone</span> networks=<span class="string">192.168.2.0/24</span></div>
+            <div class="code-line comment"># Menambahkan jaringan 192.168.2.0/24 ke area backbone</div>
+        </div>
+        
+        <p>Dari sumber Tech Layer-X (2025), untuk memeriksa status OSPF:</p>
+        
+        <div class="code-terminal">
+            <div class="code-line"><span class="keyword">/routing ospf neighbor print</span></div>
+            <div class="code-line comment"># Memeriksa tetangga OSPF</div>
+            <div class="code-line"><span class="keyword">/routing ospf interface print</span></div>
+            <div class="code-line comment"># Melihat interface OSPF aktif</div>
+            <div class="code-line"><span class="keyword">/routing ospf route print</span></div>
+            <div class="code-line comment"># Melihat rute yang dipelajari dari OSPF</div>
+            <div class="code-line"><span class="keyword">/routing ospf lsa print</span></div>
+            <div class="code-line comment"># Melihat database LSA (Link State Advertisement)</div>
+        </div>
+        
+        <div class="tech-alert">
+            <p>OSPF menggunakan konsep area untuk menskalakan jaringan besar. Area 0 atau backbone area harus menjadi pusat dari semua area lain. Untuk koneksi antar area, digunakan router yang disebut Area Border Router (ABR) yang memiliki interface di dua atau lebih area.</p>
+        </div>
+        
+        <h3 class="subsection-title">Konfigurasi BGP pada MikroTik</h3>
+        <p>Dari sumber FastNetMon (2025), berikut adalah langkah-langkah dasar untuk mengonfigurasi BGP:</p>
+        
+        <div class="code-terminal">
+            <div class="code-line"><span class="keyword">/routing bgp instance set</span> default as=<span class="string">65001</span> router-id=<span class="string">10.0.0.1</span> redistribute-static=<span class="string">no</span></div>
+            <div class="code-line comment"># Mengkonfigurasi instance BGP dengan nomor AS 65001</div>
+            <div class="code-line"><span class="keyword">/routing bgp peer add</span> name=<span class="string">peer1</span> remote-address=<span class="string">192.168.1.2</span> remote-as=<span class="string">65002</span></div>
+            <div class="code-line comment"># Menambahkan peer BGP dengan remote AS 65002</div>
+            <div class="code-line"><span class="keyword">/routing bgp network add</span> network=<span class="string">10.0.0.0/24</span></div>
+            <div class="code-line comment"># Mengiklankan jaringan 10.0.0.0/24 ke peer BGP</div>
+        </div>
+        
+        <div class="conclusion-box">
+            <p><strong>Kesimpulan:</strong> Dari 2 pendapat tersebut dapat disimpulkan bahwa Dynamic Routing pada MikroTik merupakan metode di mana router secara otomatis mempelajari dan memperbarui informasi routing melalui protokol seperti RIP, OSPF, dan BGP. OSPF ideal untuk jaringan enterprise dengan kemampuan membagi jaringan menjadi area, sementara BGP digunakan untuk routing antar autonomous system seperti koneksi antar ISP. MikroTik RouterOS menyediakan implementasi lengkap dari protokol-protokol ini dengan perintah CLI yang komprehensif untuk konfigurasi dan pemantauan.</p>
+        </div>
+    </div>
+
+    <!-- Section: Redistribution dan ECMP -->
+    <div class="section fade-in">
+        <h2 class="section-title">4. REDISTRIBUTION DAN ECMP</h2>
+        
+        <h3 class="subsection-title">Redistribution Rute</h3>
+        <p>Dari sumber Tech Layer-X (2025), redistribution adalah proses berbagi informasi routing antara protokol routing yang berbeda. MikroTik memungkinkan redistribusi rute connected, static, atau bahkan rute yang dipelajari melalui satu protokol dinamis ke protokol lain. Ini berguna dalam skenario di mana beberapa bagian jaringan menggunakan protokol routing yang berbeda.</p>
+        
+        <div class="code-terminal">
+            <div class="code-line"><span class="keyword">/routing ospf instance set</span> default redistribute-static=<span class="string">yes</span></div>
+            <div class="code-line comment"># Meredistribusi rute statis ke OSPF</div>
+            <div class="code-line"><span class="keyword">/routing ospf instance set</span> default redistribute-connected=<span class="string">as-type-1</span></div>
+            <div class="code-line comment"># Meredistribusi rute connected sebagai LSA tipe 1</div>
+            <div class="code-line"><span class="keyword">/routing bgp instance set</span> default redistribute-ospf=<span class="string">yes</span></div>
+            <div class="code-line comment"># Meredistribusi rute OSPF ke BGP</div>
+        </div>
+        
+        <p>Dari sumber MikroTik Forum (2025), redistribusi rute default ke OSPF dapat dilakukan dengan:</p>
+        
+        <div class="code-terminal">
+            <div class="code-line"><span class="keyword">/routing ospf instance set</span> default distribute-default=<span class="string">if-installed-as-type1</span></div>
+            <div class="code-line comment"># Mendistribusikan rute default via OSPF sebagai External Type 1</div>
+            <div class="code-line comment"># Opsi 'if-installed' berarti hanya didistribusikan jika rute default sudah ada</div>
+        </div>
+        
+        <div class="security-alert">
+            <p>Gunakan redistribusi dengan hati-hati! Redistribusi yang tidak tepat dapat menyebabkan loop routing atau rute suboptimal. Selalu pertimbangkan untuk menerapkan filter rute dan manipulasi metrik untuk mengendalikan rute mana yang didistribusikan dan bagaimana mereka diprioritaskan.</p>
+        </div>
+        
+        <h3 class="subsection-title">ECMP (Equal Cost Multi-Path)</h3>
+        <p>Dari sumber MikroTik Documentation (2024), ECMP adalah fitur yang memungkinkan router menggunakan lebih dari satu jalur dengan biaya (cost) yang sama ke tujuan yang sama. Ini memungkinkan load balancing traffic ke beberapa gateway. Rute ECMP memiliki beberapa nilai gateway next-hop, dan semua next-hop yang dapat dijangkau disalin ke FIB dan digunakan untuk meneruskan paket.</p>
+        
+        <div class="code-terminal">
+            <div class="code-line"><span class="keyword">/ip route add</span> dst-address=<span class="string">192.168.100.0/24</span> gateway=<span class="string">10.0.0.1,10.0.0.2</span></div>
+            <div class="code-line comment"># Menambahkan rute ECMP dengan dua gateway</div>
+            <div class="code-line"><span class="keyword">/ip route print</span></div>
+            <div class="code-line comment"># Melihat tabel routing</div>
+            <div class="code-line">Flags: ... + - ECMP</div>
+            <div class="code-line"># DST-ADDRESS        GATEWAY                        Distance</div>
+            <div class="code-line">0 AS+ 192.168.100.0/24 10.0.0.1                       1</div>
+            <div class="code-line">                      10.0.0.2                       1</div>
+        </div>
+        
+        <p>Dari sumber MikroTik Wiki (2024), OSPF dan BGP dapat secara otomatis menciptakan rute ECMP jika mereka menemukan beberapa jalur dengan biaya yang sama ke tujuan yang sama. Rute-rute ini diberi flag "+" dalam output <code>/ip route print</code> dan dikelompokkan bersama secara otomatis oleh RouterOS.</p>
+        
+        <div class="tech-alert">
+            <p>Metode load balancing default untuk ECMP pada MikroTik adalah per-connection, yang berarti semua paket untuk koneksi yang sama akan mengikuti jalur yang sama. Ini memastikan bahwa paket tidak tiba di luar urutan yang dapat menyebabkan masalah untuk protokol seperti TCP.</p>
+        </div>
+        
+        <div class="code-terminal">
+            <div class="code-line"><span class="keyword">/ip route rule add</span> dst-address=<span class="string">192.168.100.0/24</span> action=<span class="string">lookup</span> table=<span class="string">main</span> routing-mark=<span class="string">ecmp-mark</span></div>
+            <div class="code-line comment"># Menambahkan aturan routing untuk ECMP</div>
+            <div class="code-line"><span class="keyword">/ip firewall mangle add</span> chain=<span class="string">prerouting</span> dst-address=<span class="string">192.168.100.0/24</span> action=<span class="string">mark-routing</span> new-routing-mark=<span class="string">ecmp-mark</span> passthrough=<span class="string">yes</span> per-connection-classifier=<span class="string">both-addresses:2/0</span></div>
+            <div class="code-line comment"># Konfigurasi load balancing per-connection dengan klasifikasi berdasarkan alamat sumber dan tujuan</div>
+        </div>
+        
+        <div class="conclusion-box">
+            <p><strong>Kesimpulan:</strong> Dari 2 pendapat tersebut dapat disimpulkan bahwa MikroTik mendukung redistribusi rute antar protokol routing, memungkinkan integrasi berbagai bagian jaringan yang menggunakan protokol berbeda. ECMP memungkinkan load balancing traffic melalui beberapa jalur dengan biaya yang sama, meningkatkan throughput dan redundansi. Fitur-fitur ini dapat dikonfigurasi melalui CLI MikroTik dengan berbagai opsi untuk mengontrol bagaimana rute dibagikan dan traffic didistribusikan, menjadikan MikroTik solusi routing yang fleksibel untuk berbagai skenario jaringan.</p>
+        </div>
+    </div>
+
+    <!-- Section: Troubleshooting Routing -->
+    <div class="section fade-in">
+        <h2 class="section-title">5. TROUBLESHOOTING ROUTING</h2>
+        
+        <h3 class="subsection-title">Tools Diagnostik</h3>
+        <p>Dari sumber MikroTik Documentation (2024), RouterOS menyediakan berbagai tools untuk mendiagnosis masalah routing. Tools ini membantu administrator mengidentifikasi dan mengatasi masalah yang berkaitan dengan konfigurasi routing.</p>
+        
+        <div class="code-terminal">
+            <div class="code-line"><span class="keyword">/ping</span> 8.8.8.8</div>
+            <div class="code-line comment"># Memeriksa konektivitas dasar ke alamat IP tertentu</div>
+            <div class="code-line"><span class="keyword">/tool traceroute</span> 8.8.8.8</div>
+            <div class="code-line comment"># Melacak rute yang diambil paket ke tujuan</div>
+            <div class="code-line"><span class="keyword">/ip route print</span></div>
+            <div class="code-line comment"># Melihat tabel routing lengkap</div>
+            <div class="code-line"><span class="keyword">/ip route print detail</span> where dst-address=<span class="string">192.168.1.0/24</span></div>
+            <div class="code-line comment"># Melihat detail rute spesifik</div>
+            <div class="code-line"><span class="keyword">/tool torch</span> interface=<span class="string">ether1</span></div>
+            <div class="code-line comment"># Memantau traffic secara real-time pada interface</div>
+        </div>
+        
+        <p>Dari sumber Tech Layer-X (2025), untuk troubleshooting OSPF, perintah-perintah berikut sangat berguna:</p>
+        
+        <div class="code-terminal">
+            <div class="code-line"><span class="keyword">/routing ospf neighbor print</span></div>
+            <div class="code-line comment"># Memeriksa status neighbor OSPF</div>
+            <div class="code-line"><span class="keyword">/routing ospf interface print</span></div>
+            <div class="code-line comment"># Melihat interface OSPF</div>
+            <div class="code-line"><span class="keyword">/routing ospf route print</span></div>
+            <div class="code-line comment"># Melihat rute OSPF</div>
+            <div class="code-line"><span class="keyword">/system logging add topics=ospf,debug</span></div>
+            <div class="code-line comment"># Mengaktifkan debug logging untuk OSPF</div>
+        </div>
+        
+        <h3 class="subsection-title">Masalah Umum dan Solusinya</h3>
+        <p>Dari sumber MikroTik Documentation (2024), beberapa masalah umum dalam routing termasuk:</p>
+        
+        <ol>
+            <li><strong>Gateway Tidak Dapat Dijangkau</strong> - Periksa konektivitas fisik dan konfigurasi IP</li>
+            <li><strong>Rute Tidak Aktif</strong> - Periksa flag 'I' (inactive) dan alasannya di detail rute</li>
+            <li><strong>Konflik Rute</strong> - Rute dengan prefix yang sama tetapi distance berbeda</li>
+            <li><strong>Masalah Redistribusi</strong> - Filter rute yang tidak benar atau metrik tidak sesuai</li>
+        </ol>
+        
+        <p>Dari sumber Tech Layer-X (2025), untuk mengatasi masalah OSPF:</p>
+        
+        <ol>
+            <li><strong>Neighbor Tidak Terbentuk</strong> - Periksa area ID, autentikasi, dan parameter Hello/Dead</li>
+            <li><strong>Rute Tidak Terpelajari</strong> - Periksa network statement dan filter rute</li>
+            <li><strong>Rute Tidak Menjadi Aktif</strong> - Periksa konflik dengan rute statis (distance)</li>
+            <li><strong>Loop Routing</strong> - Periksa konfigurasi redistribusi dan filter rute</li>
+        </ol>
+        
+        <div class="tech-alert">
+            <p>Untuk mengatasi masalah gateway yang tidak dapat dijangkau tetapi diperlukan untuk default route, gunakan fitur check-gateway:</p>
+            <div class="code-terminal">
+                <div class="code-line"><span class="keyword">/ip route add</span> dst-address=<span class="string">0.0.0.0/0</span> gateway=<span class="string">192.168.1.1</span> check-gateway=<span class="string">ping</span></div>
+                <div class="code-line comment"># Menambahkan default route dengan pemantauan gateway</div>
+            </div>
+        </div>
+        
+        <h3 class="subsection-title">Best Practices</h3>
+        <p>Dari sumber Tech Layer-X (2025), beberapa best practices untuk routing di MikroTik:</p>
+        
+        <ul>
+            <li>Selalu gunakan router-id statis untuk protokol routing dinamis</li>
+            <li>Implementasikan keamanan (autentikasi) pada protokol routing</li>
+            <li>Gunakan filter rute untuk kontrol atas rute yang diiklankan dan diterima</li>
+            <li>Pertahankan dokumentasi yang baik untuk topologi jaringan dan konfigurasi routing</li>
+            <li>Gunakan fitur monitoring untuk pemantauan proaktif</li>
+        </ul>
+        
+        <p>Dari sumber MikroTik Forum (2025), beberapa tips untuk routing yang efisien:</p>
+        
+        <ul>
+            <li>Pilih protokol routing yang sesuai dengan ukuran dan kompleksitas jaringan</li>
+            <li>Gunakan route summarization untuk mengurangi ukuran tabel routing</li>
+            <li>Implementasikan multiple default routes dengan prioritas berbeda untuk redundansi</li>
+            <li>Manfaatkan ECMP untuk load balancing dan high availability</li>
+            <li>Gunakan routing mark untuk implementasi policy routing yang lebih kompleks</li>
+        </ul>
+        
+        <div class="security-alert">
+            <p>Awasi resource router Anda! OSPF dan BGP dapat menggunakan CPU dan memori yang signifikan pada perangkat MikroTik, terutama pada jaringan besar. Gunakan perintah <code>/routing stats memory</code> untuk memantau penggunaan memori oleh protokol routing.</p>
+        </div>
+        
+        <div class="conclusion-box">
+            <p><strong>Kesimpulan:</strong> Dari 2 pendapat tersebut dapat disimpulkan bahwa troubleshooting routing pada MikroTik melibatkan penggunaan berbagai tools diagnostik seperti ping, traceroute, dan torch, serta perintah khusus untuk protokol routing seperti OSPF dan BGP. Masalah umum meliputi gateway tidak terjangkau, rute tidak aktif, konflik rute, dan masalah redistribusi. Mengikuti best practices seperti menggunakan router-id statis, implementasi keamanan, filter rute yang tepat, dan monitoring proaktif dapat membantu mencegah masalah dan memfasilitasi troubleshooting yang efisien.</p>
+        </div>
+    </div>
+
+    <!-- Bibliography -->
+    <div class="bibliography">
+        <h3>DAFTAR PUSTAKA</h3>
+        <ul>
+            <li><strong>MikroTik Documentation.</strong> 2024. <em>IP Routing - RouterOS</em>. <a href="https://help.mikrotik.com/docs/spaces/ROS/pages/328084/IP+Routing" target="_blank">https://help.mikrotik.com/docs/spaces/ROS/pages/328084/IP+Routing</a>. Diakses pada 15 September 2025, pukul 08:15 WIB.</li>
+            
+            <li><strong>MikroTik Wiki.</strong> 2024. <em>Manual:IP/Route</em>. <a href="https://wiki.mikrotik.com/Manual:IP/Route" target="_blank">https://wiki.mikrotik.com/Manual:IP/Route</a>. Diakses pada 15 September 2025, pukul 09:30 WIB.</li>
+            
+            <li><strong>Tech Layer-X.</strong> 2025. <em>How to Set Up Static and Dynamic Routing on MikroTik</em>. <a href="https://tech.layer-x.com/static-and-dynamic-routing-on-mikrotik/" target="_blank">https://tech.layer-x.com/static-and-dynamic-routing-on-mikrotik/</a>. Diakses pada 15 September 2025, pukul 10:20 WIB.</li>
+            
+            <li><strong>Cyberlab Pacific.</strong> 2025. <em>MikroTik RouterOS</em>. <a href="https://cyberlab.pacific.edu/courses/comp177/resources/routeros-overview" target="_blank">https://cyberlab.pacific.edu/courses/comp177/resources/routeros-overview</a>. Diakses pada 15 September 2025, pukul 11:05 WIB.</li>
+
+            <li><strong>MikroTik Wiki.</strong> 2024. <em>Manual:Routing/OSPF</em>. <a href="https://wiki.mikrotik.com/Manual:Routing/OSPF" target="_blank">https://wiki.mikrotik.com/Manual:Routing/OSPF</a>. Diakses pada 15 September 2025, pukul 12:15 WIB.</li>
+
+            <li><strong>MikroTik Documentation.</strong> 2024. <em>Command Line Interface - RouterOS</em>. <a href="https://help.mikrotik.com/docs/spaces/ROS/pages/328134/Command+Line+Interface" target="_blank">https://help.mikrotik.com/docs/spaces/ROS/pages/328134/Command+Line+Interface</a>. Diakses pada 15 September 2025, pukul 13:25 WIB.</li>
+
+            <li><strong>Tech Layer-X.</strong> 2025. <em>OSPF on MikroTik: Best Practices and Advanced Configurations</em>. <a href="https://tech.layer-x.com/ospf-on-mikrotik-best-practices-and-advanced-configurations/" target="_blank">https://tech.layer-x.com/ospf-on-mikrotik-best-practices-and-advanced-configurations/</a>. Diakses pada 15 September 2025, pukul 14:10 WIB.</li>
+
+            <li><strong>FastNetMon.</strong> 2025. <em>BGP configuration on Mikrotik with FastNetMon</em>. <a href="https://fastnetmon.com/mikrotik-bgp-configuration/" target="_blank">https://fastnetmon.com/mikrotik-bgp-configuration/</a>. Diakses pada 15 September 2025, pukul 14:45 WIB.</li>
+
+            <li><strong>RouterX.</strong> 2025. <em>MikroTik Basic Configuration using Winbox & CLI</em>. <a href="https://routerx.net/mikrotik-basic-configuration-using-winbox-cli/" target="_blank">https://routerx.net/mikrotik-basic-configuration-using-winbox-cli/</a>. Diakses pada 15 September 2025, pukul 15:20 WIB.</li>
+
+            <li><strong>MikroTik Forum.</strong> 2025. <em>OSPF with Default Route</em>. <a href="https://forum.mikrotik.com/t/ospf-with-default-route/264035" target="_blank">https://forum.mikrotik.com/t/ospf-with-default-route/264035</a>. Diakses pada 15 September 2025, pukul 16:00 WIB.</li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    // Tech particles animation
+    function createTechParticles() {
+        const particlesContainer = document.getElementById('techParticles');
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+            
+            particlesContainer.appendChild(particle);
+        }
+    }
+
+    // Scroll progress
+    function updateScrollProgress() {
+        const scrollTop = document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercent = (scrollTop / scrollHeight) * 100;
+        document.getElementById('scrollProgress').style.width = scrollPercent + '%';
+    }
+
+    // Typing effect for code lines
+    function typeText(element, text, speed = 30) {
+        return new Promise(resolve => {
+            element.classList.add('typing');
+            let i = 0;
+            
+            function type() {
+                if (i < text.length) {
+                    element.textContent = text.slice(0, i + 1);
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    element.classList.remove('typing');
+                    element.classList.add('typed');
+                    resolve();
+                }
+            }
+            type();
+        });
+    }
+    
+    async function animateCodeBlock(terminal) {
+        const codeLines = terminal.querySelectorAll('.code-line:not(.typed)');
+        for (const line of codeLines) {
+            const originalHTML = line.innerHTML;
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = originalHTML;
+            const textContent = tempDiv.textContent || tempDiv.innerText || '';
+            
+            // Clear the line content, but keep child spans for styling
+            const children = Array.from(line.childNodes).map(child => child.cloneNode(true));
+            line.innerHTML = '';
+            
+            await typeText(line, textContent, 20);
+            
+            // Restore original HTML with spans
+            line.innerHTML = originalHTML;
+            line.classList.add('typed');
+        }
+    }
+
+    // Animate code blocks with typing effect
+    function setupCodeBlockObserver() {
+        const codeTerminals = document.querySelectorAll('.code-terminal');
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const terminal = entry.target;
+                    // For already typed lines, just show them
+                    terminal.querySelectorAll('.code-line.typed').forEach(line => line.style.opacity = '1');
+                    
+                    animateCodeBlock(terminal);
+                    obs.unobserve(terminal); // Animate only once
+                }
+            });
+        }, { threshold: 0.3 });
+
+        codeTerminals.forEach(terminal => {
+            observer.observe(terminal);
+        });
+    }
+
+    // Fade in animation on scroll
+    function animateOnScroll() {
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+    }
+
+    // Section hover effects
+    function addSectionEffects() {
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(section => {
+            section.addEventListener('mouseenter', () => {
+                section.style.transform = 'translateY(-8px)';
+            });
+            section.addEventListener('mouseleave', () => {
+                section.style.transform = 'translateY(0)';
+            });
+        });
+    }
+
+    // Initialize everything
+    document.addEventListener('DOMContentLoaded', () => {
+        createTechParticles();
+        animateOnScroll();
+        setupCodeBlockObserver();
+        addSectionEffects();
+        
+        // Scroll events
+        window.addEventListener('scroll', updateScrollProgress);
+        
+        // Smooth scrolling for better UX
+        document.documentElement.style.scrollBehavior = 'smooth';
+    });
+
+    // Add responsive particle count
+    function adjustParticleCount() {
+        const width = window.innerWidth;
+        const particlesContainer = document.getElementById('techParticles');
+        const currentParticles = particlesContainer.children.length;
+        const targetParticles = width < 768 ? 20 : width < 1200 ? 35 : 50;
+        
+        if (currentParticles !== targetParticles) {
+            particlesContainer.innerHTML = '';
+            for (let i = 0; i < targetParticles; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+    }
+
+    window.addEventListener('resize', adjustParticleCount);
+
+   
+</script>
+
+</html>
