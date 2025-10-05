@@ -746,7 +746,6 @@ user-drag: none;
 }
 
 </style>
-
 <!-- Portfolio Button -->
 <a href="https://jovian-portofolio02.vercel.app/" target="_blank" class="portfolio-button">
     <span class="portfolio-icon">🚀</span>
@@ -788,16 +787,13 @@ user-drag: none;
     </div>
 </div>
 
-
-       <div class="section fade-in">
-            <h2 class="section-title"># topologi yang digunakan</h2>
-
-                                                <div class="image-container">
-          <img src="topologi.png" alt="SERVICE IP pada MikroTik RouterOS">
-          <div class="image-caption">Tampilan topologi di gns3</div>
-        </div>
-
-        </div>
+<div class="section fade-in">
+    <h2 class="section-title"># topologi yang digunakan</h2>
+    <div class="image-container">
+        <img src="https://github.com/vian0001/jovian-product32/blob/main/topologi.png?raw=truehttps://github.com/vian0001/jovian-product32/blob/main/topologi.png?raw=true" alt="Topologi di GNS3">
+        <div class="image-caption">Tampilan topologi di gns3</div>
+    </div>
+</div>
 
 <div class="container">
     <!-- Section: Konsep Dasar Routing IP -->
@@ -808,6 +804,7 @@ user-drag: none;
         <p>Dari sumber MikroTik Documentation (2024), routing adalah proses pemilihan jalur untuk meneruskan paket data antar jaringan yang berbeda. Router MikroTik menjalankan proses ini dengan menyimpan semua informasi routing dalam database yang disebut RIB (Routing Information Base), yang berisi daftar entri untuk tujuan jaringan tertentu dan gateway mereka (alamat perangkat berikutnya dalam jalur atau next-hop).</p>
         
         <p>Dari sumber Tech Layer-X (2025), routing pada dasarnya merupakan proses pemilihan jalur untuk meneruskan paket data antar jaringan yang berbeda. MikroTik RouterOS mendukung baik static routing—di mana rute didefinisikan secara manual—maupun dynamic routing—di mana rute dipelajari dan diperbarui secara otomatis menggunakan protokol routing.</p>
+        
 
         
         <h3 class="subsection-title">Komponen Utama Routing pada MikroTik</h3>
@@ -822,21 +819,20 @@ user-drag: none;
             <div class="code-line comment"># Berisi dst-address, gateway, distance, dan properti lainnya</div>
         </div>
         
-        <p>Dari sumber Cyberlab Pacific (2025), MikroTik menggunakan CLI (Command Line Interface) yang kuat untuk mengonfigurasi routing, dengan perintah-perintah yang diatur dalam hierarki menu. Semua informasi routing dapat diakses melalui perintah dasar <code>/ip route</code> yang memungkinkan administrator untuk mengelola entri routing.</p>
+        <p>Dari sumber Cyberlab Pacific (2025), MikroTik menggunakan antarmuka Winbox GUI yang kuat untuk mengonfigurasi routing. Semua informasi routing dapat diakses melalui menu IP > Routes yang memungkinkan administrator untuk mengelola entri routing dengan mudah.</p>
         
         <div class="conclusion-box">
-            <p><strong>Kesimpulan:</strong> Dari 2 pendapat tersebut dapat disimpulkan bahwa routing pada MikroTik adalah proses pemilihan jalur untuk meneruskan paket data antar jaringan, yang dilakukan dengan bantuan database routing (RIB dan FIB). MikroTik RouterOS menawarkan fleksibilitas dengan mendukung baik static routing maupun dynamic routing, dan menyediakan interface CLI yang kuat untuk konfigurasi dan pengelolaan routing.</p>
+            <p><strong>Kesimpulan:</strong> Dari 2 pendapat tersebut dapat disimpulkan bahwa routing pada MikroTik adalah proses pemilihan jalur untuk meneruskan paket data antar jaringan, yang dilakukan dengan bantuan database routing (RIB dan FIB). MikroTik RouterOS menawarkan fleksibilitas dengan mendukung baik static routing maupun dynamic routing, dan menyediakan interface GUI Winbox yang kuat untuk konfigurasi dan pengelolaan routing.</p>
         </div>
     </div>
 
     <!-- Section: Static Routing -->
     <div class="section fade-in">
         <h2 class="section-title">2. STATIC ROUTING</h2>
-
         
-                                                <div class="image-container">
-          <img src="no (1).png" alt="SERVICE IP pada MikroTik RouterOS">
-          <div class="image-caption">Tampilan topologi di gns3</div>
+        <div class="image-container">
+            <img src="topologi.png" alt="Topologi routing">
+            <div class="image-caption">Tampilan topologi di gns3</div>
         </div>
         
         <h3 class="subsection-title">Pengertian Static Routing</h3>
@@ -844,70 +840,64 @@ user-drag: none;
         
         <p>Dari sumber Tech Layer-X (2025), Static Routing paling cocok untuk jaringan kecil atau stabil di mana jalur jarang berubah. Metode ini memberikan kontrol penuh atas keputusan routing, tetapi memerlukan pembaruan manual ketika topologi jaringan berubah.</p>
         
-        <h3 class="subsection-title">Konfigurasi Static Route di MikroTik</h3>
-        <p>Dari sumber MikroTik Documentation (2024), untuk menambahkan rute statis pada MikroTik, kita menggunakan perintah <code>/ip route add</code> dengan parameter dst-address dan gateway:</p>
+        <h3 class="subsection-title">Konfigurasi Static Route di MikroTik dengan Winbox</h3>
+        <p>Dari sumber MikroTik Documentation (2024), untuk menambahkan rute statis pada MikroTik menggunakan Winbox:</p>
         
-        <div class="code-terminal">
-            <div class="code-line"><span class="keyword">/ip route add</span> dst-address=<span class="string">192.168.2.0/24</span> gateway=<span class="string">172.16.1.2</span></div>
-            <div class="code-line comment"># Menambahkan rute statis untuk jaringan 192.168.2.0/24 melalui gateway 172.16.1.2</div>
-            <div class="code-line"><span class="keyword">/ip route print</span></div>
-            <div class="code-line comment"># Perintah untuk melihat tabel routing</div>
-            <div class="code-line">Flags: D - dynamic; X - disabled, I - inactive, A - active; C - connect, S - static, r - rip, b - bgp, o - ospf, d - dhcp, v - vpn</div>
-            <div class="code-line"># DST-ADDRESS        GATEWAY         Distance</div>
-            <div class="code-line">0 DAC 10.1.1.0/24     ether1          0</div>
-            <div class="code-line">1 DAC 172.16.1.0/30   ether2          0</div>
-            <div class="code-line">2 DAC 192.168.1.0/24  bridge1         0</div>
-            <div class="code-line">3 AS  192.168.2.0/24  172.16.1.2      1</div>
-        </div>
+        <ol class="step-list">
+            <li>Buka aplikasi Winbox dan hubungkan ke router MikroTik</li>
+            <li>Dari menu utama, buka <strong>IP > Routes</strong></li>
+            <li>Klik tombol <strong>Add (+)</strong> untuk menambahkan rute baru</li>
+            <li>Masukkan <strong>Dst. Address</strong> (alamat tujuan) dan netmask, contoh: 192.168.2.0/24</li>
+            <li>Masukkan <strong>Gateway</strong> (alamat IP router berikutnya), contoh: 172.16.1.2</li>
+            <li>Biarkan <strong>Distance</strong> pada nilai default (1) atau sesuaikan jika diperlukan</li>
+            <li>Klik <strong>Apply</strong> dan <strong>OK</strong> untuk menyimpan rute</li>
+        </ol>
         
-        <p>Dari sumber RouterX (2025), untuk konfigurasi static route melalui Winbox GUI:</p>
-        <ol>
-            <li>Buka IP > Routes</li>
-            <li>Klik tombol + untuk menambahkan rute baru</li>
-            <li>Masukkan alamat tujuan (Dst. Address) dan netmask</li>
-            <li>Tentukan gateway (alamat IP router berikutnya)</li>
-            <li>Atur distance jika diperlukan (default: 1)</li>
-            <li>Klik Apply dan OK</li>
+        <p>Dari sumber RouterX (2025), untuk melihat tabel routing di Winbox:</p>
+        <ol class="step-list">
+            <li>Buka <strong>IP > Routes</strong></li>
+            <li>Perhatikan kolom <strong>Flags</strong> yang menunjukkan status rute:
+                <ul>
+                    <li><strong>A</strong> - Active: Rute aktif dan digunakan</li>
+                    <li><strong>S</strong> - Static: Rute yang dikonfigurasi secara manual</li>
+                    <li><strong>D</strong> - Dynamic: Rute yang dipelajari dari protokol routing dinamis</li>
+                    <li><strong>C</strong> - Connected: Rute yang terhubung langsung ke interface router</li>
+                    <li><strong>X</strong> - Disabled: Rute yang dinonaktifkan</li>
+                    <li><strong>I</strong> - Inactive: Rute tidak aktif karena berbagai alasan</li>
+                </ul>
+            </li>
         </ol>
         
         <div class="tech-alert">
-            <p>Flag pada output <code>/ip route print</code> memberikan informasi penting tentang status rute:</p>
-            <ul>
-                <li><strong>A</strong> - Active: Rute aktif dan digunakan</li>
-                <li><strong>S</strong> - Static: Rute yang dikonfigurasi secara manual</li>
-                <li><strong>D</strong> - Dynamic: Rute yang dipelajari dari protokol routing dinamis</li>
-                <li><strong>C</strong> - Connected: Rute yang terhubung langsung ke interface router</li>
-                <li><strong>X</strong> - Disabled: Rute yang dinonaktifkan</li>
-                <li><strong>I</strong> - Inactive: Rute tidak aktif karena berbagai alasan</li>
-            </ul>
+            <p>Untuk memverifikasi bahwa rute statis berfungsi dengan benar, Anda dapat menggunakan fitur Ping di Winbox:</p>
+            <ol>
+                <li>Buka menu <strong>Tools > Ping</strong></li>
+                <li>Masukkan alamat IP dari jaringan tujuan</li>
+                <li>Klik <strong>Start</strong> untuk menjalankan tes ping</li>
+            </ol>
         </div>
         
         <h3 class="subsection-title">Default Route</h3>
-        <p>Dari sumber MikroTik Documentation (2024), Default Route adalah rute khusus dengan alamat tujuan <code>0.0.0.0/0</code>. Rute ini digunakan sebagai "jalur cadangan" atau "rute terakhir" ketika tidak ada rute spesifik lain yang cocok untuk paket data. Pada MikroTik, default route dapat ditambahkan dengan:</p>
+        <p>Dari sumber MikroTik Documentation (2024), Default Route adalah rute khusus dengan alamat tujuan 0.0.0.0/0. Rute ini digunakan sebagai "jalur cadangan" atau "rute terakhir" ketika tidak ada rute spesifik lain yang cocok untuk paket data. Cara mengonfigurasi default route di Winbox:</p>
         
-        <div class="code-terminal">
-            <div class="code-line"><span class="keyword">/ip route add</span> dst-address=<span class="string">0.0.0.0/0</span> gateway=<span class="string">10.0.0.1</span></div>
-            <div class="code-line comment"># Menambahkan default route menuju gateway 10.0.0.1</div>
-            <div class="code-line"><span class="keyword">/ip route add</span> gateway=<span class="string">10.0.0.1</span></div>
-            <div class="code-line comment"># Alternatif - dst-address=0.0.0.0/0 dianggap default jika tidak diisi</div>
-        </div>
+        <ol class="step-list">
+            <li>Buka <strong>IP > Routes</strong></li>
+            <li>Klik tombol <strong>Add (+)</strong> untuk menambahkan rute baru</li>
+            <li>Untuk <strong>Dst. Address</strong>, masukkan 0.0.0.0/0 (atau biarkan kosong, yang secara default dianggap 0.0.0.0/0)</li>
+            <li>Untuk <strong>Gateway</strong>, masukkan alamat IP gateway (biasanya alamat IP router ISP Anda)</li>
+            <li>Klik <strong>Apply</strong> dan <strong>OK</strong> untuk menyimpan default route</li>
+        </ol>
         
         <p>Dari sumber MikroTik Wiki (2024), Default Route adalah jalur yang akan digunakan untuk semua traffic yang tidak memiliki rute spesifik dalam tabel routing. Default route dikenal juga sebagai "gateway of last resort" dan sangat penting untuk konektivitas internet pada sebagian besar jaringan.</p>
         
         <div class="conclusion-box">
-            <p><strong>Kesimpulan:</strong> Dari 2 pendapat tersebut dapat disimpulkan bahwa Static Routing pada MikroTik adalah metode konfigurasi manual jalur yang akan digunakan untuk mengirimkan paket ke jaringan tujuan. Konfigurasi dapat dilakukan melalui CLI dengan perintah <code>/ip route add</code> atau melalui Winbox GUI. Default Route (0.0.0.0/0) merupakan komponen penting yang menentukan gateway untuk semua traffic yang tidak memiliki rute spesifik, biasanya digunakan untuk koneksi internet.</p>
+            <p><strong>Kesimpulan:</strong> Dari 2 pendapat tersebut dapat disimpulkan bahwa Static Routing pada MikroTik adalah metode konfigurasi manual jalur yang akan digunakan untuk mengirimkan paket ke jaringan tujuan. Konfigurasi dapat dilakukan melalui Winbox GUI dengan mudah dan intuitif. Default Route (0.0.0.0/0) merupakan komponen penting yang menentukan gateway untuk semua traffic yang tidak memiliki rute spesifik, biasanya digunakan untuk koneksi internet.</p>
         </div>
     </div>
 
     <!-- Section: Dynamic Routing -->
     <div class="section fade-in">
         <h2 class="section-title">3. DYNAMIC ROUTING</h2>
-
-                                                        <div class="image-container">
-          <img src="no (2).png" 
-          alt="SERVICE IP pada MikroTik RouterOS">
-          <div class="image-caption">Tampilan topologi di gns3</div>
-        </div>
         
         <h3 class="subsection-title">Pengertian Dynamic Routing</h3>
         <p>Dari sumber Tech Layer-X (2025), Dynamic Routing adalah metode routing di mana router secara otomatis belajar, memilih, dan memperbarui rute melalui protokol routing. Protokol ini memungkinkan router untuk berbagi informasi routing dengan router lain dan beradaptasi dengan perubahan topologi jaringan. MikroTik RouterOS mendukung beberapa protokol routing dinamis seperti RIP, OSPF, dan BGP.</p>
@@ -931,51 +921,83 @@ user-drag: none;
         
         <p>Dari sumber MikroTik Wiki (2024), OSPF adalah protokol link-state yang mengurus rute dalam struktur jaringan dinamis yang dapat menggunakan berbagai jalur ke subjaringannya. Ini selalu memilih jalur terpendek ke subjaringan terlebih dahulu, dan setiap area menjalankan salinan terpisah dari algoritma routing link-state dasar.</p>
         
-        <h3 class="subsection-title">Konfigurasi OSPF pada MikroTik</h3>
-        <p>Dari sumber MikroTik Wiki (2024), berikut adalah langkah-langkah dasar untuk mengonfigurasi OSPF:</p>
+        <h3 class="subsection-title">Konfigurasi OSPF pada MikroTik dengan Winbox</h3>
+        <p>Dari sumber MikroTik Wiki (2024), berikut adalah langkah-langkah mengkonfigurasi OSPF menggunakan Winbox:</p>
         
-        <div class="code-terminal">
-            <div class="code-line"><span class="keyword">/routing ospf instance add</span> name=<span class="string">default</span> router-id=<span class="string">1.1.1.1</span></div>
-            <div class="code-line comment"># Membuat instance OSPF dengan router-id 1.1.1.1</div>
-            <div class="code-line"><span class="keyword">/routing ospf area add</span> name=<span class="string">backbone</span> area-id=<span class="string">0.0.0.0</span> instance=<span class="string">default</span></div>
-            <div class="code-line comment"># Menambahkan area backbone (area 0)</div>
-            <div class="code-line"><span class="keyword">/routing ospf interface-template add</span> area=<span class="string">backbone</span> networks=<span class="string">192.168.1.0/24</span></div>
-            <div class="code-line comment"># Menambahkan jaringan 192.168.1.0/24 ke area backbone</div>
-            <div class="code-line"><span class="keyword">/routing ospf interface-template add</span> area=<span class="string">backbone</span> networks=<span class="string">192.168.2.0/24</span></div>
-            <div class="code-line comment"># Menambahkan jaringan 192.168.2.0/24 ke area backbone</div>
-        </div>
+        <ol class="step-list">
+            <li>Buka Winbox dan hubungkan ke router MikroTik Anda</li>
+            <li>Dari menu utama, navigasi ke <strong>Routing > OSPF</strong></li>
+            <li>Pada tab <strong>Instances</strong>, klik tombol <strong>Add (+)</strong> untuk membuat instance baru:
+                <ul>
+                    <li>Pada kolom <strong>Name</strong>, masukkan "default"</li>
+                    <li>Pada kolom <strong>Router ID</strong>, masukkan ID unik (format IP, misal 1.1.1.1)</li>
+                    <li>Klik <strong>OK</strong> untuk menyimpan</li>
+                </ul>
+            </li>
+            <li>Beralih ke tab <strong>Areas</strong>, klik tombol <strong>Add (+)</strong> untuk menambahkan area:
+                <ul>
+                    <li>Pada kolom <strong>Name</strong>, masukkan "backbone"</li>
+                    <li>Pada kolom <strong>Area ID</strong>, masukkan "0.0.0.0" untuk area backbone</li>
+                    <li>Pada kolom <strong>Instance</strong>, pilih "default"</li>
+                    <li>Klik <strong>OK</strong> untuk menyimpan</li>
+                </ul>
+            </li>
+            <li>Beralih ke tab <strong>Networks</strong>, klik tombol <strong>Add (+)</strong> untuk menambahkan jaringan:
+                <ul>
+                    <li>Pada kolom <strong>Network</strong>, masukkan jaringan (misal: 192.168.1.0/24)</li>
+                    <li>Pada kolom <strong>Area</strong>, pilih "backbone"</li>
+                    <li>Klik <strong>OK</strong> untuk menyimpan</li>
+                </ul>
+            </li>
+            <li>Ulangi langkah 5 untuk menambahkan jaringan lain (misal: 192.168.2.0/24)</li>
+        </ol>
         
-        <p>Dari sumber Tech Layer-X (2025), untuk memeriksa status OSPF:</p>
+        <p>Dari sumber Tech Layer-X (2025), untuk memeriksa status OSPF menggunakan Winbox:</p>
         
-        <div class="code-terminal">
-            <div class="code-line"><span class="keyword">/routing ospf neighbor print</span></div>
-            <div class="code-line comment"># Memeriksa tetangga OSPF</div>
-            <div class="code-line"><span class="keyword">/routing ospf interface print</span></div>
-            <div class="code-line comment"># Melihat interface OSPF aktif</div>
-            <div class="code-line"><span class="keyword">/routing ospf route print</span></div>
-            <div class="code-line comment"># Melihat rute yang dipelajari dari OSPF</div>
-            <div class="code-line"><span class="keyword">/routing ospf lsa print</span></div>
-            <div class="code-line comment"># Melihat database LSA (Link State Advertisement)</div>
-        </div>
+        <ol class="step-list">
+            <li>Buka <strong>Routing > OSPF</strong></li>
+            <li>Klik tab <strong>Neighbors</strong> untuk melihat tetangga OSPF</li>
+            <li>Klik tab <strong>Interfaces</strong> untuk melihat interface OSPF aktif</li>
+            <li>Klik tab <strong>LSA</strong> untuk melihat database Link State Advertisement</li>
+            <li>Untuk melihat rute yang dipelajari dari OSPF, buka <strong>IP > Routes</strong> dan periksa rute dengan tanda "o" di kolom Flags</li>
+        </ol>
         
         <div class="tech-alert">
             <p>OSPF menggunakan konsep area untuk menskalakan jaringan besar. Area 0 atau backbone area harus menjadi pusat dari semua area lain. Untuk koneksi antar area, digunakan router yang disebut Area Border Router (ABR) yang memiliki interface di dua atau lebih area.</p>
         </div>
         
-        <h3 class="subsection-title">Konfigurasi BGP pada MikroTik</h3>
-        <p>Dari sumber FastNetMon (2025), berikut adalah langkah-langkah dasar untuk mengonfigurasi BGP:</p>
+        <h3 class="subsection-title">Konfigurasi BGP pada MikroTik dengan Winbox</h3>
+        <p>Dari sumber FastNetMon (2025), berikut adalah langkah-langkah mengkonfigurasi BGP menggunakan Winbox:</p>
         
-        <div class="code-terminal">
-            <div class="code-line"><span class="keyword">/routing bgp instance set</span> default as=<span class="string">65001</span> router-id=<span class="string">10.0.0.1</span> redistribute-static=<span class="string">no</span></div>
-            <div class="code-line comment"># Mengkonfigurasi instance BGP dengan nomor AS 65001</div>
-            <div class="code-line"><span class="keyword">/routing bgp peer add</span> name=<span class="string">peer1</span> remote-address=<span class="string">192.168.1.2</span> remote-as=<span class="string">65002</span></div>
-            <div class="code-line comment"># Menambahkan peer BGP dengan remote AS 65002</div>
-            <div class="code-line"><span class="keyword">/routing bgp network add</span> network=<span class="string">10.0.0.0/24</span></div>
-            <div class="code-line comment"># Mengiklankan jaringan 10.0.0.0/24 ke peer BGP</div>
-        </div>
+        <ol class="step-list">
+            <li>Buka Winbox dan hubungkan ke router MikroTik Anda</li>
+            <li>Dari menu utama, navigasi ke <strong>Routing > BGP</strong></li>
+            <li>Pada tab <strong>Instances</strong>, klik dua kali pada instance "default" (atau tambahkan yang baru jika belum ada):
+                <ul>
+                    <li>Pada kolom <strong>AS</strong>, masukkan nomor AS Anda (misal: 65001)</li>
+                    <li>Pada kolom <strong>Router ID</strong>, masukkan ID unik (misal: 10.0.0.1)</li>
+                    <li>Untuk <strong>Redistribute Static</strong>, pilih "no" (atau "yes" jika ingin meredistribusi rute statis)</li>
+                    <li>Klik <strong>OK</strong> untuk menyimpan</li>
+                </ul>
+            </li>
+            <li>Beralih ke tab <strong>Peers</strong>, klik tombol <strong>Add (+)</strong> untuk menambahkan peer BGP:
+                <ul>
+                    <li>Pada kolom <strong>Name</strong>, masukkan nama deskriptif (misal: "peer1")</li>
+                    <li>Pada kolom <strong>Remote Address</strong>, masukkan alamat IP peer (misal: 192.168.1.2)</li>
+                    <li>Pada kolom <strong>Remote AS</strong>, masukkan nomor AS peer (misal: 65002)</li>
+                    <li>Klik <strong>OK</strong> untuk menyimpan</li>
+                </ul>
+            </li>
+            <li>Beralih ke tab <strong>Networks</strong>, klik tombol <strong>Add (+)</strong> untuk mengiklankan jaringan:
+                <ul>
+                    <li>Pada kolom <strong>Network</strong>, masukkan jaringan yang ingin diiklankan (misal: 10.0.0.0/24)</li>
+                    <li>Klik <strong>OK</strong> untuk menyimpan</li>
+                </ul>
+            </li>
+        </ol>
         
         <div class="conclusion-box">
-            <p><strong>Kesimpulan:</strong> Dari 2 pendapat tersebut dapat disimpulkan bahwa Dynamic Routing pada MikroTik merupakan metode di mana router secara otomatis mempelajari dan memperbarui informasi routing melalui protokol seperti RIP, OSPF, dan BGP. OSPF ideal untuk jaringan enterprise dengan kemampuan membagi jaringan menjadi area, sementara BGP digunakan untuk routing antar autonomous system seperti koneksi antar ISP. MikroTik RouterOS menyediakan implementasi lengkap dari protokol-protokol ini dengan perintah CLI yang komprehensif untuk konfigurasi dan pemantauan.</p>
+            <p><strong>Kesimpulan:</strong> Dari 2 pendapat tersebut dapat disimpulkan bahwa Dynamic Routing pada MikroTik merupakan metode di mana router secara otomatis mempelajari dan memperbarui informasi routing melalui protokol seperti RIP, OSPF, dan BGP. OSPF ideal untuk jaringan enterprise dengan kemampuan membagi jaringan menjadi area, sementara BGP digunakan untuk routing antar autonomous system seperti koneksi antar ISP. MikroTik RouterOS menyediakan antarmuka Winbox yang intuitif untuk konfigurasi dan pemantauan protokol routing dinamis.</p>
         </div>
     </div>
 
@@ -986,56 +1008,77 @@ user-drag: none;
         <h3 class="subsection-title">Redistribution Rute</h3>
         <p>Dari sumber Tech Layer-X (2025), redistribution adalah proses berbagi informasi routing antara protokol routing yang berbeda. MikroTik memungkinkan redistribusi rute connected, static, atau bahkan rute yang dipelajari melalui satu protokol dinamis ke protokol lain. Ini berguna dalam skenario di mana beberapa bagian jaringan menggunakan protokol routing yang berbeda.</p>
         
-        <div class="code-terminal">
-            <div class="code-line"><span class="keyword">/routing ospf instance set</span> default redistribute-static=<span class="string">yes</span></div>
-            <div class="code-line comment"># Meredistribusi rute statis ke OSPF</div>
-            <div class="code-line"><span class="keyword">/routing ospf instance set</span> default redistribute-connected=<span class="string">as-type-1</span></div>
-            <div class="code-line comment"># Meredistribusi rute connected sebagai LSA tipe 1</div>
-            <div class="code-line"><span class="keyword">/routing bgp instance set</span> default redistribute-ospf=<span class="string">yes</span></div>
-            <div class="code-line comment"># Meredistribusi rute OSPF ke BGP</div>
-        </div>
+        <p>Cara mengkonfigurasi redistribusi rute dengan Winbox:</p>
         
-        <p>Dari sumber MikroTik Forum (2025), redistribusi rute default ke OSPF dapat dilakukan dengan:</p>
+        <ol class="step-list">
+            <li>Buka Winbox dan hubungkan ke router MikroTik Anda</li>
+            <li>Untuk redistribusi ke OSPF:
+                <ul>
+                    <li>Navigasi ke <strong>Routing > OSPF</strong></li>
+                    <li>Pada tab <strong>Instances</strong>, klik dua kali pada instance yang ada (biasanya "default")</li>
+                    <li>Beralih ke tab <strong>Redistribute</strong></li>
+                    <li>Centang opsi yang sesuai:
+                        <ul>
+                            <li><strong>Connected</strong>: Pilih "as-type-1" atau "as-type-2" dari dropdown</li>
+                            <li><strong>Static</strong>: Pilih "yes" dari dropdown</li>
+                        </ul>
+                    </li>
+                    <li>Klik <strong>OK</strong> untuk menyimpan</li>
+                </ul>
+            </li>
+            <li>Untuk redistribusi ke BGP:
+                <ul>
+                    <li>Navigasi ke <strong>Routing > BGP</strong></li>
+                    <li>Pada tab <strong>Instances</strong>, klik dua kali pada instance "default"</li>
+                    <li>Di kolom <strong>Redistribute OSPF</strong>, pilih "yes" dari dropdown</li>
+                    <li>Klik <strong>OK</strong> untuk menyimpan</li>
+                </ul>
+            </li>
+        </ol>
         
-        <div class="code-terminal">
-            <div class="code-line"><span class="keyword">/routing ospf instance set</span> default distribute-default=<span class="string">if-installed-as-type1</span></div>
-            <div class="code-line comment"># Mendistribusikan rute default via OSPF sebagai External Type 1</div>
-            <div class="code-line comment"># Opsi 'if-installed' berarti hanya didistribusikan jika rute default sudah ada</div>
-        </div>
+        <p>Dari sumber MikroTik Forum (2025), untuk redistribusi rute default ke OSPF menggunakan Winbox:</p>
+        
+        <ol class="step-list">
+            <li>Navigasi ke <strong>Routing > OSPF</strong></li>
+            <li>Pada tab <strong>Instances</strong>, klik dua kali pada instance "default"</li>
+            <li>Di kolom <strong>Distribute Default</strong>, pilih "if-installed-as-type1" dari dropdown (ini berarti default route akan didistribusikan jika sudah ada di tabel routing)</li>
+            <li>Klik <strong>OK</strong> untuk menyimpan</li>
+        </ol>
         
         <div class="security-alert">
             <p>Gunakan redistribusi dengan hati-hati! Redistribusi yang tidak tepat dapat menyebabkan loop routing atau rute suboptimal. Selalu pertimbangkan untuk menerapkan filter rute dan manipulasi metrik untuk mengendalikan rute mana yang didistribusikan dan bagaimana mereka diprioritaskan.</p>
         </div>
         
         <h3 class="subsection-title">ECMP (Equal Cost Multi-Path)</h3>
-        <p>Dari sumber MikroTik Documentation (2024), ECMP adalah fitur yang memungkinkan router menggunakan lebih dari satu jalur dengan biaya (cost) yang sama ke tujuan yang sama. Ini memungkinkan load balancing traffic ke beberapa gateway. Rute ECMP memiliki beberapa nilai gateway next-hop, dan semua next-hop yang dapat dijangkau disalin ke FIB dan digunakan untuk meneruskan paket.</p>
+        <p>Dari sumber MikroTik Documentation (2024), ECMP adalah fitur yang memungkinkan router menggunakan lebih dari satu jalur dengan biaya (cost) yang sama ke tujuan yang sama. Ini memungkinkan load balancing traffic ke beberapa gateway.</p>
         
-        <div class="code-terminal">
-            <div class="code-line"><span class="keyword">/ip route add</span> dst-address=<span class="string">192.168.100.0/24</span> gateway=<span class="string">10.0.0.1,10.0.0.2</span></div>
-            <div class="code-line comment"># Menambahkan rute ECMP dengan dua gateway</div>
-            <div class="code-line"><span class="keyword">/ip route print</span></div>
-            <div class="code-line comment"># Melihat tabel routing</div>
-            <div class="code-line">Flags: ... + - ECMP</div>
-            <div class="code-line"># DST-ADDRESS        GATEWAY                        Distance</div>
-            <div class="code-line">0 AS+ 192.168.100.0/24 10.0.0.1                       1</div>
-            <div class="code-line">                      10.0.0.2                       1</div>
-        </div>
+        <p>Cara mengkonfigurasi ECMP dengan Winbox:</p>
         
-        <p>Dari sumber MikroTik Wiki (2024), OSPF dan BGP dapat secara otomatis menciptakan rute ECMP jika mereka menemukan beberapa jalur dengan biaya yang sama ke tujuan yang sama. Rute-rute ini diberi flag "+" dalam output <code>/ip route print</code> dan dikelompokkan bersama secara otomatis oleh RouterOS.</p>
+        <ol class="step-list">
+            <li>Buka Winbox dan hubungkan ke router MikroTik Anda</li>
+            <li>Navigasi ke <strong>IP > Routes</strong></li>
+            <li>Klik tombol <strong>Add (+)</strong> untuk menambahkan rute baru</li>
+            <li>Pada kolom <strong>Dst. Address</strong>, masukkan alamat jaringan tujuan (misal: 192.168.100.0/24)</li>
+            <li>Pada kolom <strong>Gateway</strong>, masukkan beberapa alamat IP gateway yang dipisahkan dengan koma (misal: 10.0.0.1,10.0.0.2)</li>
+            <li>Klik <strong>OK</strong> untuk menyimpan rute ECMP</li>
+        </ol>
+        
+        <p>Untuk melihat rute ECMP:</p>
+        <ol class="step-list">
+            <li>Buka <strong>IP > Routes</strong></li>
+            <li>Perhatikan rute dengan tanda "+" di kolom Flags yang menunjukkan rute ECMP</li>
+            <li>Klik dua kali pada rute untuk melihat detail gateway</li>
+        </ol>
+        
+        <p>Dari sumber MikroTik Wiki (2024), OSPF dan BGP dapat secara otomatis menciptakan rute ECMP jika mereka menemukan beberapa jalur dengan biaya yang sama ke tujuan yang sama. Rute-rute ini diberi flag "+" dalam tampilan IP > Routes dan dikelompokkan bersama secara otomatis oleh RouterOS.</p>
         
         <div class="tech-alert">
             <p>Metode load balancing default untuk ECMP pada MikroTik adalah per-connection, yang berarti semua paket untuk koneksi yang sama akan mengikuti jalur yang sama. Ini memastikan bahwa paket tidak tiba di luar urutan yang dapat menyebabkan masalah untuk protokol seperti TCP.</p>
-        </div>
-        
-        <div class="code-terminal">
-            <div class="code-line"><span class="keyword">/ip route rule add</span> dst-address=<span class="string">192.168.100.0/24</span> action=<span class="string">lookup</span> table=<span class="string">main</span> routing-mark=<span class="string">ecmp-mark</span></div>
-            <div class="code-line comment"># Menambahkan aturan routing untuk ECMP</div>
-            <div class="code-line"><span class="keyword">/ip firewall mangle add</span> chain=<span class="string">prerouting</span> dst-address=<span class="string">192.168.100.0/24</span> action=<span class="string">mark-routing</span> new-routing-mark=<span class="string">ecmp-mark</span> passthrough=<span class="string">yes</span> per-connection-classifier=<span class="string">both-addresses:2/0</span></div>
-            <div class="code-line comment"># Konfigurasi load balancing per-connection dengan klasifikasi berdasarkan alamat sumber dan tujuan</div>
+            <p>Untuk load balancing yang lebih canggih, gunakan fitur PCC (Per Connection Classifier) di <strong>IP > Firewall > Mangle</strong>.</p>
         </div>
         
         <div class="conclusion-box">
-            <p><strong>Kesimpulan:</strong> Dari 2 pendapat tersebut dapat disimpulkan bahwa MikroTik mendukung redistribusi rute antar protokol routing, memungkinkan integrasi berbagai bagian jaringan yang menggunakan protokol berbeda. ECMP memungkinkan load balancing traffic melalui beberapa jalur dengan biaya yang sama, meningkatkan throughput dan redundansi. Fitur-fitur ini dapat dikonfigurasi melalui CLI MikroTik dengan berbagai opsi untuk mengontrol bagaimana rute dibagikan dan traffic didistribusikan, menjadikan MikroTik solusi routing yang fleksibel untuk berbagai skenario jaringan.</p>
+            <p><strong>Kesimpulan:</strong> Dari 2 pendapat tersebut dapat disimpulkan bahwa MikroTik mendukung redistribusi rute antar protokol routing, memungkinkan integrasi berbagai bagian jaringan yang menggunakan protokol berbeda. ECMP memungkinkan load balancing traffic melalui beberapa jalur dengan biaya yang sama, meningkatkan throughput dan redundansi. Fitur-fitur ini dapat dikonfigurasi dengan mudah melalui antarmuka Winbox, menjadikan MikroTik solusi routing yang fleksibel untuk berbagai skenario jaringan.</p>
         </div>
     </div>
 
@@ -1043,60 +1086,131 @@ user-drag: none;
     <div class="section fade-in">
         <h2 class="section-title">5. TROUBLESHOOTING ROUTING</h2>
         
-        <h3 class="subsection-title">Tools Diagnostik</h3>
+        <h3 class="subsection-title">Tools Diagnostik dengan Winbox</h3>
         <p>Dari sumber MikroTik Documentation (2024), RouterOS menyediakan berbagai tools untuk mendiagnosis masalah routing. Tools ini membantu administrator mengidentifikasi dan mengatasi masalah yang berkaitan dengan konfigurasi routing.</p>
         
-        <div class="code-terminal">
-            <div class="code-line"><span class="keyword">/ping</span> 8.8.8.8</div>
-            <div class="code-line comment"># Memeriksa konektivitas dasar ke alamat IP tertentu</div>
-            <div class="code-line"><span class="keyword">/tool traceroute</span> 8.8.8.8</div>
-            <div class="code-line comment"># Melacak rute yang diambil paket ke tujuan</div>
-            <div class="code-line"><span class="keyword">/ip route print</span></div>
-            <div class="code-line comment"># Melihat tabel routing lengkap</div>
-            <div class="code-line"><span class="keyword">/ip route print detail</span> where dst-address=<span class="string">192.168.1.0/24</span></div>
-            <div class="code-line comment"># Melihat detail rute spesifik</div>
-            <div class="code-line"><span class="keyword">/tool torch</span> interface=<span class="string">ether1</span></div>
-            <div class="code-line comment"># Memantau traffic secara real-time pada interface</div>
-        </div>
+        <ol class="step-list">
+            <li><strong>Ping Test</strong>:
+                <ul>
+                    <li>Buka menu <strong>Tools > Ping</strong></li>
+                    <li>Masukkan alamat IP yang ingin diuji (misal: 8.8.8.8)</li>
+                    <li>Klik <strong>Start</strong> untuk memulai test</li>
+                </ul>
+            </li>
+            <li><strong>Traceroute</strong>:
+                <ul>
+                    <li>Buka menu <strong>Tools > Traceroute</strong></li>
+                    <li>Masukkan alamat IP tujuan</li>
+                    <li>Klik <strong>Start</strong> untuk melihat jalur yang diambil paket</li>
+                </ul>
+            </li>
+            <li><strong>Memeriksa Tabel Routing</strong>:
+                <ul>
+                    <li>Buka <strong>IP > Routes</strong></li>
+                    <li>Lihat semua rute dan status mereka (Active, Inactive)</li>
+                    <li>Klik dua kali pada rute tertentu untuk melihat detailnya</li>
+                </ul>
+            </li>
+            <li><strong>Torch</strong> (Monitoring traffic real-time):
+                <ul>
+                    <li>Buka menu <strong>Tools > Torch</strong></li>
+                    <li>Pilih interface yang ingin dipantau dari dropdown</li>
+                    <li>Atur filter sesuai kebutuhan</li>
+                    <li>Klik <strong>Start</strong> untuk memulai monitoring</li>
+                </ul>
+            </li>
+        </ol>
         
-        <p>Dari sumber Tech Layer-X (2025), untuk troubleshooting OSPF, perintah-perintah berikut sangat berguna:</p>
+        <p>Dari sumber Tech Layer-X (2025), untuk troubleshooting OSPF menggunakan Winbox:</p>
         
-        <div class="code-terminal">
-            <div class="code-line"><span class="keyword">/routing ospf neighbor print</span></div>
-            <div class="code-line comment"># Memeriksa status neighbor OSPF</div>
-            <div class="code-line"><span class="keyword">/routing ospf interface print</span></div>
-            <div class="code-line comment"># Melihat interface OSPF</div>
-            <div class="code-line"><span class="keyword">/routing ospf route print</span></div>
-            <div class="code-line comment"># Melihat rute OSPF</div>
-            <div class="code-line"><span class="keyword">/system logging add topics=ospf,debug</span></div>
-            <div class="code-line comment"># Mengaktifkan debug logging untuk OSPF</div>
-        </div>
+        <ol class="step-list">
+            <li>Buka <strong>Routing > OSPF</strong></li>
+            <li>Klik tab <strong>Neighbors</strong> untuk memeriksa status tetangga OSPF</li>
+            <li>Klik tab <strong>Interfaces</strong> untuk melihat interface OSPF</li>
+            <li>Klik tab <strong>LSA</strong> untuk melihat database Link State Advertisement</li>
+            <li>Untuk mengaktifkan log debug:
+                <ul>
+                    <li>Buka <strong>System > Logging</strong></li>
+                    <li>Klik tombol <strong>Add (+)</strong></li>
+                    <li>Pada <strong>Topics</strong>, pilih "ospf" dan "debug"</li>
+                    <li>Klik <strong>OK</strong> untuk mengaktifkan logging</li>
+                    <li>Buka <strong>Log</strong> dari menu utama untuk melihat log</li>
+                </ul>
+            </li>
+        </ol>
         
         <h3 class="subsection-title">Masalah Umum dan Solusinya</h3>
-        <p>Dari sumber MikroTik Documentation (2024), beberapa masalah umum dalam routing termasuk:</p>
+        <p>Dari sumber MikroTik Documentation (2024), beberapa masalah umum dalam routing dan cara mengatasinya:</p>
         
-        <ol>
-            <li><strong>Gateway Tidak Dapat Dijangkau</strong> - Periksa konektivitas fisik dan konfigurasi IP</li>
-            <li><strong>Rute Tidak Aktif</strong> - Periksa flag 'I' (inactive) dan alasannya di detail rute</li>
-            <li><strong>Konflik Rute</strong> - Rute dengan prefix yang sama tetapi distance berbeda</li>
-            <li><strong>Masalah Redistribusi</strong> - Filter rute yang tidak benar atau metrik tidak sesuai</li>
+        <ol class="step-list">
+            <li><strong>Gateway Tidak Dapat Dijangkau</strong>:
+                <ul>
+                    <li>Periksa konektivitas fisik kabel dan status interface di <strong>Interfaces</strong></li>
+                    <li>Verifikasi konfigurasi IP di <strong>IP > Addresses</strong></li>
+                    <li>Gunakan <strong>Tools > Ping</strong> untuk menguji konektivitas</li>
+                </ul>
+            </li>
+            <li><strong>Rute Tidak Aktif</strong>:
+                <ul>
+                    <li>Di <strong>IP > Routes</strong>, periksa flag 'I' (inactive) pada rute</li>
+                    <li>Klik dua kali pada rute untuk melihat detail dan alasan ketidakaktifan</li>
+                    <li>Periksa apakah gateway dapat dijangkau</li>
+                </ul>
+            </li>
+            <li><strong>Konflik Rute</strong>:
+                <ul>
+                    <li>Periksa rute dengan prefix yang sama tetapi distance berbeda</li>
+                    <li>Rute dengan distance terendah akan dipilih</li>
+                    <li>Sesuaikan nilai distance jika perlu</li>
+                </ul>
+            </li>
+            <li><strong>Masalah Redistribusi</strong>:
+                <ul>
+                    <li>Periksa konfigurasi redistribusi di protokol routing</li>
+                    <li>Periksa filter rute dan metrik yang ditetapkan</li>
+                </ul>
+            </li>
         </ol>
         
         <p>Dari sumber Tech Layer-X (2025), untuk mengatasi masalah OSPF:</p>
         
-        <ol>
-            <li><strong>Neighbor Tidak Terbentuk</strong> - Periksa area ID, autentikasi, dan parameter Hello/Dead</li>
-            <li><strong>Rute Tidak Terpelajari</strong> - Periksa network statement dan filter rute</li>
-            <li><strong>Rute Tidak Menjadi Aktif</strong> - Periksa konflik dengan rute statis (distance)</li>
-            <li><strong>Loop Routing</strong> - Periksa konfigurasi redistribusi dan filter rute</li>
+        <ol class="step-list">
+            <li><strong>Neighbor Tidak Terbentuk</strong>:
+                <ul>
+                    <li>Periksa apakah kedua router berada dalam area yang sama</li>
+                    <li>Pastikan parameter Hello/Dead interval sama</li>
+                    <li>Periksa autentikasi jika digunakan</li>
+                </ul>
+            </li>
+            <li><strong>Rute Tidak Terpelajari</strong>:
+                <ul>
+                    <li>Periksa konfigurasi network statement</li>
+                    <li>Periksa filter rute jika ada</li>
+                </ul>
+            </li>
+            <li><strong>Rute Tidak Menjadi Aktif</strong>:
+                <ul>
+                    <li>Periksa konflik dengan rute statis (distance)</li>
+                    <li>Pastikan next-hop dapat dijangkau</li>
+                </ul>
+            </li>
+            <li><strong>Loop Routing</strong>:
+                <ul>
+                    <li>Periksa konfigurasi redistribusi</li>
+                    <li>Terapkan filter rute untuk mencegah loop</li>
+                </ul>
+            </li>
         </ol>
         
         <div class="tech-alert">
-            <p>Untuk mengatasi masalah gateway yang tidak dapat dijangkau tetapi diperlukan untuk default route, gunakan fitur check-gateway:</p>
-            <div class="code-terminal">
-                <div class="code-line"><span class="keyword">/ip route add</span> dst-address=<span class="string">0.0.0.0/0</span> gateway=<span class="string">192.168.1.1</span> check-gateway=<span class="string">ping</span></div>
-                <div class="code-line comment"># Menambahkan default route dengan pemantauan gateway</div>
-            </div>
+            <p>Untuk mengatasi masalah gateway yang tidak dapat dijangkau tetapi diperlukan untuk default route, gunakan fitur Check Gateway:</p>
+            <ol class="step-list">
+                <li>Di <strong>IP > Routes</strong>, tambahkan atau edit default route</li>
+                <li>Centang opsi <strong>Check Gateway</strong></li>
+                <li>Pilih metode "ping" atau "arp" dari dropdown</li>
+                <li>Klik <strong>OK</strong> untuk menyimpan</li>
+            </ol>
+            <p>Router akan secara otomatis mematikan rute jika gateway tidak dapat dijangkau dan mengaktifkannya kembali ketika tersedia.</p>
         </div>
         
         <h3 class="subsection-title">Best Practices</h3>
@@ -1121,11 +1235,15 @@ user-drag: none;
         </ul>
         
         <div class="security-alert">
-            <p>Awasi resource router Anda! OSPF dan BGP dapat menggunakan CPU dan memori yang signifikan pada perangkat MikroTik, terutama pada jaringan besar. Gunakan perintah <code>/routing stats memory</code> untuk memantau penggunaan memori oleh protokol routing.</p>
+            <p>Awasi resource router Anda! OSPF dan BGP dapat menggunakan CPU dan memori yang signifikan pada perangkat MikroTik, terutama pada jaringan besar. Untuk memantau resource:</p>
+            <ol class="step-list">
+                <li>Buka <strong>System > Resources</strong> untuk melihat penggunaan CPU dan memori</li>
+                <li>Untuk melihat penggunaan memori oleh protokol routing, buka <strong>Routing > OSPF > Status</strong> atau <strong>Routing > BGP > Status</strong></li>
+            </ol>
         </div>
         
         <div class="conclusion-box">
-            <p><strong>Kesimpulan:</strong> Dari 2 pendapat tersebut dapat disimpulkan bahwa troubleshooting routing pada MikroTik melibatkan penggunaan berbagai tools diagnostik seperti ping, traceroute, dan torch, serta perintah khusus untuk protokol routing seperti OSPF dan BGP. Masalah umum meliputi gateway tidak terjangkau, rute tidak aktif, konflik rute, dan masalah redistribusi. Mengikuti best practices seperti menggunakan router-id statis, implementasi keamanan, filter rute yang tepat, dan monitoring proaktif dapat membantu mencegah masalah dan memfasilitasi troubleshooting yang efisien.</p>
+            <p><strong>Kesimpulan:</strong> Dari 2 pendapat tersebut dapat disimpulkan bahwa troubleshooting routing pada MikroTik melibatkan penggunaan berbagai tools diagnostik seperti Ping, Traceroute, dan Torch, serta menu khusus untuk protokol routing seperti OSPF dan BGP. Masalah umum meliputi gateway tidak terjangkau, rute tidak aktif, konflik rute, dan masalah redistribusi. Mengikuti best practices seperti menggunakan router-id statis, implementasi keamanan, filter rute yang tepat, dan monitoring proaktif dapat membantu mencegah masalah dan memfasilitasi troubleshooting yang efisien.</p>
         </div>
     </div>
 
@@ -1155,7 +1273,6 @@ user-drag: none;
         </ul>
     </div>
 </div>
-
 <script>
     // Tech particles animation
     function createTechParticles() {
@@ -1309,49 +1426,7 @@ user-drag: none;
 
     window.addEventListener('resize', adjustParticleCount);
 
-          // Anti-Copy JavaScript
-    document.addEventListener('DOMContentLoaded', function() {
-        // Mencegah seleksi teks
-        document.addEventListener('selectstart', function(e) {
-            e.preventDefault();
-            return false;
-        });
-
-        // Mencegah penyalinan teks (Ctrl+C)
-        document.addEventListener('copy', function(e) {
-            e.preventDefault();
-            // Opsional: Tampilkan pesan
-            alert('Maaf, penyalinan konten pada halaman ini tidak diizinkan!');
-            return false;
-        });
-
-        // Mencegah pemotongan teks (Ctrl+X)
-        document.addEventListener('cut', function(e) {
-            e.preventDefault();
-            return false;
-        });
-
-        // Mencegah penempelan teks (Ctrl+V)
-        document.addEventListener('paste', function(e) {
-            e.preventDefault();
-            return false;
-        });
-
-        // Mencegah klik kanan
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            return false;
-        });
-
-        // Mencegah drag & drop
-        document.addEventListener('dragstart', function(e) {
-            e.preventDefault();
-            return false;
-        });
-    });
-  
    
 </script>
-
 
 </html>
