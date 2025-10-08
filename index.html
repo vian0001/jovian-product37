@@ -746,78 +746,8 @@ user-drag: none;
 }
 
 </style>
-<!-- Portfolio Button -->
-<a href="https://jovian-portofolio02.vercel.app/" target="_blank" class="portfolio-button">
-    <span class="portfolio-icon">🚀</span>
-    Lihat Portfolio Saya
-    <div class="attention-ripple"></div>
-</a>
 
-<!-- Tech Background -->
-<div class="tech-bg"></div>
-<div class="circuit-pattern"></div>
-<div class="tech-particles" id="techParticles"></div>
 
-<!-- Header -->
-<div class="header">
-    <h1 class="main-title">MIKROTIK ROUTEROS</h1>
-    <div class="subtitle">Memahami Konsep Dasar Routing IP</div>
-    <div class="subtitle">Konfigurasi dan implementasi routing pada perangkat MikroTik</div>
-    
-    <div class="author-card">
-        <div class="card-header">Informasi Penulis</div>
-        <div class="author-info">
-            <div class="info-item">
-                <span class="info-label">Penulis:</span>
-                <span class="info-value">Jovian Ekasakta</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Guru:</span>
-                <span class="info-value">Arief Wahyudin</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Kelas:</span>
-                <span class="info-value">XI TJKT 03</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Sekolah:</span>
-                <span class="info-value">Dwija Bhakti 01 Jombang</span>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <!-- Section: Konsep Dasar Routing IP -->
-    <div class="section fade-in">
-        <h2 class="section-title">1. KONSEP DASAR ROUTING IP</h2>
-
-      
-        
-        <h3 class="subsection-title">Pengertian Routing IP</h3>
-        <p>Dari sumber MikroTik Documentation (2024), routing adalah proses pemilihan jalur untuk meneruskan paket data antar jaringan yang berbeda. Router MikroTik menjalankan proses ini dengan menyimpan semua informasi routing dalam database yang disebut RIB (Routing Information Base), yang berisi daftar entri untuk tujuan jaringan tertentu dan gateway mereka (alamat perangkat berikutnya dalam jalur atau next-hop).</p>
-        
-        <p>Dari sumber Tech Layer-X (2025), routing pada dasarnya merupakan proses pemilihan jalur untuk meneruskan paket data antar jaringan yang berbeda. MikroTik RouterOS mendukung baik static routing—di mana rute didefinisikan secara manual—maupun dynamic routing—di mana rute dipelajari dan diperbarui secara otomatis menggunakan protokol routing.</p>
-        
-
-        
-        <h3 class="subsection-title">Komponen Utama Routing pada MikroTik</h3>
-        <p>Dari sumber MikroTik Documentation (2024), MikroTik RouterOS menggunakan beberapa komponen utama dalam proses routing:</p>
-        
-        <div class="code-terminal">
-            <div class="code-line"><span class="keyword">RIB (Routing Information Base)</span> - Berisi semua prefix yang dipelajari dari protokol routing</div>
-            <div class="code-line comment"># Mencakup rute dari jaringan terkoneksi (connected), statis, BGP, RIP, OSPF</div>
-            <div class="code-line"><span class="keyword">FIB (Forwarding Information Base)</span> - Tabel yang digunakan router untuk meneruskan paket</div>
-            <div class="code-line comment"># Berisi rute aktif yang dipilih dari RIB</div>
-            <div class="code-line"><span class="keyword">Route</span> - Entri individual dalam tabel routing yang menunjukkan jalur ke jaringan tujuan</div>
-            <div class="code-line comment"># Berisi dst-address, gateway, distance, dan properti lainnya</div>
-        </div>
-        
-        <p>Dari sumber Cyberlab Pacific (2025), MikroTik menggunakan antarmuka Winbox GUI yang kuat untuk mengonfigurasi routing. Semua informasi routing dapat diakses melalui menu IP > Routes yang memungkinkan administrator untuk mengelola entri routing dengan mudah.</p>
-        
-        <div class="conclusion-box">
-            <p><strong>Kesimpulan:</strong> Dari 2 pendapat tersebut dapat disimpulkan bahwa routing pada MikroTik adalah proses pemilihan jalur untuk meneruskan paket data antar jaringan, yang dilakukan dengan bantuan database routing (RIB dan FIB). MikroTik RouterOS menawarkan fleksibilitas dengan mendukung baik static routing maupun dynamic routing, dan menyediakan interface GUI Winbox yang kuat untuk konfigurasi dan pengelolaan routing.</p>
-        </div>
 
       <!-- Portfolio Button -->
 <a href="https://jovian-portofolio02.vercel.app/" target="_blank" class="portfolio-button">
@@ -887,6 +817,365 @@ user-drag: none;
         <div class="conclusion-box">
             <p><strong>Kesimpulan:</strong> Dari 2 pendapat tersebut dapat disimpulkan bahwa routing pada MikroTik adalah proses pemilihan jalur untuk meneruskan paket data antar jaringan, yang dilakukan dengan bantuan database routing (RIB dan FIB). MikroTik RouterOS menawarkan fleksibilitas dengan mendukung baik static routing maupun dynamic routing, dan menyediakan interface GUI Winbox yang kuat untuk konfigurasi dan pengelolaan routing.</p>
         </div>
+
+      
+<div class="container">
+    <!-- Section: Konsep Dasar Routing IP -->
+    <div class="section fade-in">
+        <h2 class="section-title">1. KONSEP DASAR ROUTING IP</h2>
+
+      
+        
+        <h3 class="subsection-title">Pengertian Routing IP</h3>
+        <p>Dari sumber MikroTik Documentation (2024), routing adalah proses pemilihan jalur untuk meneruskan paket data antar jaringan yang berbeda. Router MikroTik menjalankan proses ini dengan menyimpan semua informasi routing dalam database yang disebut RIB (Routing Information Base), yang berisi daftar entri untuk tujuan jaringan tertentu dan gateway mereka (alamat perangkat berikutnya dalam jalur atau next-hop).</p>
+        
+        <p>Dari sumber Tech Layer-X (2025), routing pada dasarnya merupakan proses pemilihan jalur untuk meneruskan paket data antar jaringan yang berbeda. MikroTik RouterOS mendukung baik static routing—di mana rute didefinisikan secara manual—maupun dynamic routing—di mana rute dipelajari dan diperbarui secara otomatis menggunakan protokol routing.</p>
+        
+
+        
+        <h3 class="subsection-title">Komponen Utama Routing pada MikroTik</h3>
+        <p>Dari sumber MikroTik Documentation (2024), MikroTik RouterOS menggunakan beberapa komponen utama dalam proses routing:</p>
+        
+        <div class="code-terminal">
+            <div class="code-line"><span class="keyword">RIB (Routing Information Base)</span> - Berisi semua prefix yang dipelajari dari protokol routing</div>
+            <div class="code-line comment"># Mencakup rute dari jaringan terkoneksi (connected), statis, BGP, RIP, OSPF</div>
+            <div class="code-line"><span class="keyword">FIB (Forwarding Information Base)</span> - Tabel yang digunakan router untuk meneruskan paket</div>
+            <div class="code-line comment"># Berisi rute aktif yang dipilih dari RIB</div>
+            <div class="code-line"><span class="keyword">Route</span> - Entri individual dalam tabel routing yang menunjukkan jalur ke jaringan tujuan</div>
+            <div class="code-line comment"># Berisi dst-address, gateway, distance, dan properti lainnya</div>
+        </div>
+        
+        <p>Dari sumber Cyberlab Pacific (2025), MikroTik menggunakan antarmuka Winbox GUI yang kuat untuk mengonfigurasi routing. Semua informasi routing dapat diakses melalui menu IP > Routes yang memungkinkan administrator untuk mengelola entri routing dengan mudah.</p>
+        
+        <div class="conclusion-box">
+            <p><strong>Kesimpulan:</strong> Dari 2 pendapat tersebut dapat disimpulkan bahwa routing pada MikroTik adalah proses pemilihan jalur untuk meneruskan paket data antar jaringan, yang dilakukan dengan bantuan database routing (RIB dan FIB). MikroTik RouterOS menawarkan fleksibilitas dengan mendukung baik static routing maupun dynamic routing, dan menyediakan interface GUI Winbox yang kuat untuk konfigurasi dan pengelolaan routing.</p>
+        </div>
+
+      
+<div class="container">
+    <!-- Section: Konsep Dasar Routing IP -->
+    <div class="section fade-in">
+        <h2 class="section-title">1. KONSEP DASAR ROUTING IP</h2>
+        
+        <h3 class="subsection-title">Pengertian Routing IP</h3>
+        <p>Dari sumber MikroTik Documentation (2024), routing adalah proses pemilihan jalur untuk meneruskan paket data antar jaringan yang berbeda. Router MikroTik menjalankan proses ini dengan menyimpan semua informasi routing dalam database yang disebut RIB (Routing Information Base), yang berisi daftar entri untuk tujuan jaringan tertentu dan gateway mereka (alamat perangkat berikutnya dalam jalur atau next-hop).</p>
+        
+        <p>Dari sumber Tech Layer-X (2025), routing pada dasarnya merupakan proses pemilihan jalur untuk meneruskan paket data antar jaringan yang berbeda. MikroTik RouterOS mendukung baik static routing—di mana rute didefinisikan secara manual—maupun dynamic routing—di mana rute dipelajari dan diperbarui secara otomatis menggunakan protokol routing.</p>
+        
+        <h3 class="subsection-title">Komponen Utama Routing pada MikroTik</h3>
+        <p>Dari sumber MikroTik Documentation (2024), MikroTik RouterOS menggunakan beberapa komponen utama dalam proses routing:</p>
+        
+        <div class="code-terminal">
+            <div class="code-line"><span class="keyword">RIB (Routing Information Base)</span> - Berisi semua prefix yang dipelajari dari protokol routing</div>
+            <div class="code-line comment"># Mencakup rute dari jaringan terkoneksi (connected), statis, BGP, RIP, OSPF</div>
+            <div class="code-line"><span class="keyword">FIB (Forwarding Information Base)</span> - Tabel yang digunakan router untuk meneruskan paket</div>
+            <div class="code-line comment"># Berisi rute aktif yang dipilih dari RIB</div>
+            <div class="code-line"><span class="keyword">Route</span> - Entri individual dalam tabel routing yang menunjukkan jalur ke jaringan tujuan</div>
+            <div class="code-line comment"># Berisi dst-address, gateway, distance, dan properti lainnya</div>
+        </div>
+        
+        <p>Dari sumber Cyberlab Pacific (2025), MikroTik menggunakan antarmuka Winbox GUI yang kuat untuk mengonfigurasi routing. Semua informasi routing dapat diakses melalui menu IP > Routes yang memungkinkan administrator untuk mengelola entri routing dengan mudah.</p>
+        
+        <div class="conclusion-box">
+            <p><strong>Kesimpulan:</strong> Dari 2 pendapat tersebut dapat disimpulkan bahwa routing pada MikroTik adalah proses pemilihan jalur untuk meneruskan paket data antar jaringan, yang dilakukan dengan bantuan database routing (RIB dan FIB). MikroTik RouterOS menawarkan fleksibilitas dengan mendukung baik static routing maupun dynamic routing, dan menyediakan interface GUI Winbox yang kuat untuk konfigurasi dan pengelolaan routing.</p>
+        </div>
+    </div>
+
+    <!-- Section: Klasifikasi Protokol Routing -->
+    <div class="section fade-in">
+        <h2 class="section-title">2. KLASIFIKASI PROTOKOL ROUTING: IGP DAN EGP</h2>
+        
+        <h3 class="subsection-title">Pengertian IGP (Interior Gateway Protocol)</h3>
+        <p>Dari sumber Cisco Networking Academy (2024), <strong>IGP (Interior Gateway Protocol)</strong> adalah protokol routing yang digunakan untuk bertukar informasi routing dalam satu Autonomous System (AS). Autonomous System adalah kumpulan jaringan yang berada di bawah kendali administratif yang sama, seperti jaringan dalam sebuah perusahaan atau organisasi.</p>
+        
+        <p>Dari sumber MikroTik Documentation (2024), protokol IGP dirancang untuk digunakan dalam jaringan internal dan memiliki karakteristik:</p>
+        
+        <ul>
+            <li>Menggunakan metrik yang relatif sederhana (hop count, bandwidth, delay)</li>
+            <li>Memiliki konvergensi yang cepat ketika terjadi perubahan topologi</li>
+            <li>Cocok untuk jaringan dengan skala menengah hingga besar</li>
+            <li>Mendukung hierarki routing untuk meningkatkan skalabilitas</li>
+        </ul>
+        
+        <h3 class="subsection-title">Jenis-jenis Protokol IGP</h3>
+        <p>Dari sumber Tech Layer-X (2025), berikut adalah protokol IGP utama yang didukung oleh MikroTik RouterOS:</p>
+        
+        <div class="code-terminal">
+            <div class="code-line"><span class="keyword">RIP (Routing Information Protocol)</span></div>
+            <div class="code-line comment"># Protokol distance-vector klasik yang menggunakan hop count sebagai metrik</div>
+            <div class="code-line comment"># Maximum hop count: 15, cocok untuk jaringan kecil</div>
+            <div class="code-line"><span class="keyword">OSPF (Open Shortest Path First)</span></div>
+            <div class="code-line comment"># Protokol link-state yang menggunakan algoritma Dijkstra (SPF)</div>
+            <div class="code-line comment"># Mendukung desain hierarkis dengan area, cocok untuk jaringan enterprise</div>
+            <div class="code-line"><span class="keyword">EIGRP (Enhanced Interior Gateway Routing Protocol)</span></div>
+            <div class="code-line comment"># Protokol hybrid (Cisco proprietary) dengan konvergensi cepat</div>
+            <div class="code-line comment"># Menggunakan DUAL algorithm untuk menghitung rute terbaik</div>
+            <div class="code-line"><span class="keyword">IS-IS (Intermediate System to Intermediate System)</span></div>
+            <div class="code-line comment"># Protokol link-state yang mirip dengan OSPF</div>
+            <div class="code-line comment"># Banyak digunakan oleh ISP karena skalabilitasnya</div>
+        </div>
+        
+        <h3 class="subsection-title">Pengertian EGP (Exterior Gateway Protocol)</h3>
+        <p>Dari sumber RFC 4271 (2024), <strong>EGP (Exterior Gateway Protocol)</strong> adalah protokol routing yang digunakan untuk bertukar informasi routing antara Autonomous System yang berbeda. Protokol ini memungkinkan jaringan dari organisasi yang berbeda untuk saling terhubung, seperti koneksi antara perusahaan dengan ISP atau antara ISP yang berbeda.</p>
+        
+        <p>Dari sumber MikroTik Wiki (2024), EGP memiliki karakteristik yang berbeda dengan IGP:</p>
+        
+        <ul>
+            <li>Fokus pada kebijakan routing (policy-based routing) daripada metrik teknis</li>
+            <li>Mendukung routing berdasarkan path attributes bukan hanya biaya</li>
+            <li>Memiliki mekanisme loop prevention yang lebih kompleks</li>
+            <li>Dirancang untuk skalabilitas yang sangat tinggi (seperti internet)</li>
+        </ul>
+        
+        <h3 class="subsection-title">Protokol EGP Utama: BGP</h3>
+        <p>Dari sumber FastNetMon (2025), <strong>BGP (Border Gateway Protocol)</strong> adalah satu-satunya protokol EGP yang digunakan secara luas di internet saat ini. BGP versi 4 (BGP-4) adalah standar de facto untuk routing antar autonomous system.</p>
+        
+        <div class="code-terminal">
+            <div class="code-line"><span class="keyword">BGP (Border Gateway Protocol)</span></div>
+            <div class="code-line comment"># Protokol path-vector yang menggunakan atribut path untuk seleksi rute</div>
+            <div class="code-line comment"># Mendukung routing policies yang kompleks berdasarkan AS Path</div>
+            <div class="code-line comment"># Digunakan untuk koneksi antara perusahaan-ISP dan ISP-ISP</div>
+        </div>
+        
+        <p>Dari sumber MikroTik Documentation (2024), BGP pada MikroTik dapat dikonfigurasi untuk:</p>
+        
+        <ul>
+            <li><strong>eBGP (external BGP)</strong>: Koneksi antara autonomous system yang berbeda</li>
+            <li><strong>iBGP (internal BGP)</strong>: Koneksi antara router dalam satu autonomous system yang sama</li>
+            <li><strong>Route Reflection</strong>: Untuk mengurangi full-mesh requirement dalam iBGP</li>
+            <li><strong>Route Filtering</strong>: Mengontrol rute yang diiklankan dan diterima</li>
+        </ul>
+        
+        <div class="comparison-table">
+            <h4>Perbandingan IGP vs EGP</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspek</th>
+                        <th>IGP (Interior Gateway Protocol)</th>
+                        <th>EGP (Exterior Gateway Protocol)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Scope</strong></td>
+                        <td>Dalam satu Autonomous System</td>
+                        <td>Antar Autonomous System</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Contoh Protokol</strong></td>
+                        <td>RIP, OSPF, EIGRP, IS-IS</td>
+                        <td>BGP</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Algoritma</strong></td>
+                        <td>Distance-Vector, Link-State</td>
+                        <td>Path-Vector</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Metrik</strong></td>
+                        <td>Hop count, bandwidth, delay</td>
+                        <td>Path attributes, policies</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Konvergensi</strong></td>
+                        <td>Cepat</td>
+                        <td>Lambat (untuk stabilitas)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Skalabilitas</strong></td>
+                        <td>Terbatas (ratusan router)</td>
+                        <td>Sangat tinggi (ribuan router)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="conclusion-box">
+            <p><strong>Kesimpulan:</strong> Dari berbagai sumber dapat disimpulkan bahwa IGP dan EGP merupakan dua klasifikasi utama protokol routing berdasarkan scope penggunaannya. IGP digunakan untuk routing dalam satu autonomous system dengan fokus pada efisiensi dan konvergensi cepat, sementara EGP (khususnya BGP) digunakan untuk routing antar autonomous system dengan fokus pada kebijakan dan stabilitas. MikroTik RouterOS mendukung kedua jenis protokol ini, memungkinkan implementasi routing yang komprehensif untuk berbagai skenario jaringan.</p>
+        </div>
+    </div>
+
+    <!-- Section: Algoritma Routing -->
+    <div class="section fade-in">
+        <h2 class="section-title">3. ALGORITMA ROUTING DAN METRIK</h2>
+        
+        <h3 class="subsection-title">Konsep Dasar Algoritma Routing</h3>
+        <p>Dari sumber Tanenbaum & Wetherall (2021), algoritma routing adalah prosedur matematis yang digunakan oleh router untuk menentukan jalur terbaik untuk mengirimkan paket data dari sumber ke tujuan. Algoritma ini bekerja dengan memproses informasi dalam tabel routing dan memilih rute berdasarkan kriteria tertentu.</p>
+        
+        <p>Dari sumber MikroTik Documentation (2024), setiap algoritma routing memiliki tujuan utama:</p>
+        
+        <ul>
+            <li><strong>Optimalitas</strong>: Memilih jalur terbaik berdasarkan metrik tertentu</li>
+            <li><strong>Efisiensi</strong>: Menggunakan resource jaringan secara optimal</li>
+            <li><strong>Konvergensi</strong>: Kemampuan untuk mencapai kesepakatan tentang topologi jaringan</li>
+            <li><strong>Stabilitas</strong>: Tetap bekerja dengan baik selama perubahan jaringan</li>
+        </ul>
+        
+        <h3 class="subsection-title">Jenis-jenis Algoritma Routing</h3>
+        
+        <h4>1. Distance-Vector Algorithm</h4>
+        <p>Dari sumber Cisco Networking Academy (2024), algoritma <strong>Distance-Vector</strong> bekerja dengan cara setiap router berbagi seluruh tabel routingnya dengan router tetangga secara periodik. Router kemudian menghitung jarak terpendek ke setiap jaringan berdasarkan informasi yang diterima.</p>
+        
+        <div class="code-terminal">
+            <div class="code-line"><span class="keyword">Karakteristik Distance-Vector:</span></div>
+            <div class="code-line comment"># Setiap router hanya mengetahui informasi dari router tetangga</div>
+            <div class="code-line comment"># Menggunakan algoritma Bellman-Ford untuk perhitungan</div>
+            <div class="code-line comment"># Contoh: RIP, IGRP, EIGRP (sebagian)</div>
+            <div class="code-line comment"># Rentan terhadap routing loops dan count-to-infinity problem</div>
+        </div>
+        
+        <p>Dari sumber Tech Layer-X (2025), mekanisme loop prevention dalam Distance-Vector:</p>
+        
+        <ul>
+            <li><strong>Split Horizon</strong>: Tidak mengiklankan rute kembali ke interface tempat rute tersebut dipelajari</li>
+            <li><strong>Route Poisoning</strong>: Menandai rute yang tidak tersedia dengan metric tak terhingga</li>
+            <li><strong>Hold-down Timers</strong>: Menunggu periode tertentu sebelum mempercayai informasi routing baru</li>
+        </ul>
+        
+        <h4>2. Link-State Algorithm</h4>
+        <p>Dari sumber RFC 2328 (2024), algoritma <strong>Link-State</strong> bekerja dengan cara setiap router membuat peta lengkap topologi jaringan. Router mengirimkan informasi tentang link yang terhubung langsung (link-state) ke semua router dalam area, kemudian setiap router menjalankan algoritma yang sama untuk menghitung pohon jalur terpendek.</p>
+        
+        <div class="code-terminal">
+            <div class="code-line"><span class="keyword">Karakteristik Link-State:</span></div>
+            <div class="code-line comment"># Setiap router memiliki peta lengkap topologi jaringan</div>
+            <div class="code-line comment"># Menggunakan algoritma Dijkstra (Shortest Path First)</div>
+            <div class="code-line comment"># Contoh: OSPF, IS-IS</div>
+            <div class="code-line comment"># Konvergensi lebih cepat dan bebas dari routing loops</div>
+        </div>
+        
+        <p>Dari sumber MikroTik Wiki (2024), proses Link-State Routing:</p>
+        
+        <ol class="step-list">
+            <li><strong>Discover Neighbors</strong>: Router menemukan router tetangga menggunakan Hello packets</li>
+            <li><strong>Measure Cost</strong>: Mengukur cost atau metric ke setiap tetangga</li>
+            <li><strong>Build LSP</strong>: Membangun Link State Packet berisi informasi yang dikumpulkan</li>
+            <li><strong>Flood LSP</strong>: Mengirimkan LSP ke semua router dalam area</li>
+            <li><strong>Compute Routes</strong>: Menghitung rute terbaik ke semua tujuan menggunakan algoritma SPF</li>
+        </ol>
+        
+        <h4>3. Path-Vector Algorithm</h4>
+        <p>Dari sumber RFC 4271 (2024), algoritma <strong>Path-Vector</strong> adalah pengembangan dari Distance-Vector yang dirancang khusus untuk routing skala besar seperti internet. Algoritma ini mencatat seluruh path (urutan autonomous system) yang dilalui oleh rute.</p>
+        
+        <div class="code-terminal">
+            <div class="code-line"><span class="keyword">Karakteristik Path-Vector:</span></div>
+            <div class="code-line comment"># Menyimpan seluruh path (AS Path) dalam setiap update</div>
+            <div class="code-line comment"># Menggunakan atribut path untuk seleksi rute dan loop prevention</div>
+            <div class="code-line comment"># Contoh: BGP</div>
+            <div class="code-line comment"># Fokus pada policy-based routing daripada optimalitas teknis</div>
+        </div>
+        
+        <h3 class="subsection-title">Metrik Routing</h3>
+        <p>Dari sumber Tanenbaum & Wetherall (2021), metrik routing adalah nilai yang digunakan oleh algoritma routing untuk menentukan jalur terbaik ketika terdapat multiple path ke tujuan yang sama. Berikut adalah metrik umum yang digunakan:</p>
+        
+        <div class="comparison-table">
+            <h4>Jenis-jenis Metrik Routing</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metrik</th>
+                        <th>Deskripsi</th>
+                        <th>Protokol yang Menggunakan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Hop Count</strong></td>
+                        <td>Jumlah router yang harus dilalui</td>
+                        <td>RIP</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bandwidth</strong></td>
+                        <td>Kapasitas link data (dalam bps)</td>
+                        <td>OSPF, EIGRP</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Delay</strong></td>
+                        <td>Waktu yang dibutuhkan untuk melintasi path</td>
+                        <td>EIGRP</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Load</strong></td>
+                        <td>Utilization link saat ini</td>
+                        <td>EIGRP</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reliability</strong></td>
+                        <td>Tingkat error rate pada link</td>
+                        <td>EIGRP</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cost</strong></td>
+                        <td>Nilai arbitrer berdasarkan bandwidth atau administrasi</td>
+                        <td>OSPF, IS-IS</td>
+                    </tr>
+                    <tr>
+                        <td><strong>MTU</strong></td>
+                        <td>Maximum Transmission Unit pada path</td>
+                        <td>Beberapa protokol</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <h3 class="subsection-title">Algoritma Dijkstra (Shortest Path First)</h3>
+        <p>Dari sumber RFC 2328 (2024), algoritma Dijkstra adalah algoritma link-state yang digunakan oleh OSPF untuk menghitung jalur terpendek. Berikut adalah cara kerjanya:</p>
+        
+        <ol class="step-list">
+            <li><strong>Inisialisasi</strong>: 
+                <ul>
+                    <li>Router menempatkan dirinya sebagai root dari pohon</li>
+                    <li>Menetapkan cost 0 untuk diri sendiri dan ∞ untuk router lain</li>
+                </ul>
+            </li>
+            <li><strong>Evaluasi Tetangga</strong>:
+                <ul>
+                    <li>Memeriksa semua router tetangga yang terhubung langsung</li>
+                    <li>Menghitung cost kumulatif ke setiap tetangga</li>
+                </ul>
+            </li>
+            <li><strong>Pilih Jalur Terpendek</strong>:
+                <ul>
+                    <li>Memilih router dengan cost terendah yang belum diproses</li>
+                    <li>Menambahkan router tersebut ke pohon jalur terpendek</li>
+                </ul>
+            </li>
+            <li><strong>Update Cost</strong>:
+                <ul>
+                    <li>Memperbarui cost ke semua router yang terhubung melalui router yang baru dipilih</li>
+                    <li>Jika ditemukan cost yang lebih rendah, update tabel routing</li>
+                </ul>
+            </li>
+            <li><strong>Ulangi</strong>:
+                <ul>
+                    <li>Mengulangi langkah 3 dan 4 sampai semua router telah diproses</li>
+                </ul>
+            </li>
+        </ol>
+        
+        <div class="tech-alert">
+            <p><strong>Catatan Penting:</strong> Algoritma Dijkstra menjamin bahwa semua jalur yang dihasilkan adalah jalur terpendek dan bebas dari loop. Namun, algoritma ini membutuhkan komputasi yang lebih intensif dibandingkan algoritma Distance-Vector.</p>
+        </div>
+        
+        <div class="conclusion-box">
+            <p><strong>Kesimpulan:</strong> Dari berbagai sumber dapat disimpulkan bahwa algoritma routing merupakan inti dari proses routing yang menentukan bagaimana paket data dikirim melalui jaringan. Terdapat tiga jenis algoritma utama: Distance-Vector (menggunakan informasi lokal), Link-State (menggunakan peta topologi lengkap), dan Path-Vector (menggunakan informasi path lengkap). Setiap algoritma menggunakan metrik yang berbeda-beda untuk menentukan jalur terbaik, dan pemilihan algoritma yang tepat bergantung pada ukuran jaringan, kebutuhan konvergensi, dan kompleksitas administrasi yang diinginkan.</p>
+        </div>
+    </div>
+
+    <!-- Section: Static Routing -->
+    <div class="section fade-in">
+        <h2 class="section-title">4. STATIC ROUTING</h2>
+        
+        <h3 class="subsection-title">Pengertian Static Routing</h3>
+        <p>Dari sumber MikroTik Wiki (2024), Static Routing adalah metode routing di mana rute ditentukan secara manual oleh administrator jaringan. Rute statis menentukan jalur yang akan digunakan paket data untuk mencapai jaringan tujuan tertentu. Pada MikroTik, rute statis memiliki prioritas lebih tinggi daripada rute dinamis karena memiliki nilai distance yang lebih rendah secara default.</p>
+        
+        <p>Dari sumber Tech Layer-X (2025), Static Routing paling cocok untuk jaringan kecil atau stabil di mana jalur jarang berubah. Metode ini memberikan kontrol penuh atas keputusan routing, tetapi memerlukan pembaruan manual ketika topologi jaringan berubah.</p>
+        
+        <!-- Lanjutan bagian Static Routing seperti sebelumnya -->
+        <!-- ... (sisa kode untuk static routing) ... -->
+    </div>
+  
+
     </div>
 
     <!-- Section: Klasifikasi Protokol Routing -->
@@ -1807,6 +2096,7 @@ user-drag: none;
 </script>
 
 </html>
+
 
 
 
