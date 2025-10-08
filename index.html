@@ -790,66 +790,6 @@ user-drag: none;
     </div>
 </div>
 
-<div class="container">
-    <!-- Section: Konsep Dasar Routing IP -->
-    <div class="section fade-in">
-        <h2 class="section-title">1. KONSEP DASAR ROUTING IP</h2>
-        
-        <h3 class="subsection-title">Pengertian Routing IP</h3>
-        <p>Dari sumber MikroTik Documentation (2024), routing adalah proses pemilihan jalur untuk meneruskan paket data antar jaringan yang berbeda. Router MikroTik menjalankan proses ini dengan menyimpan semua informasi routing dalam database yang disebut RIB (Routing Information Base), yang berisi daftar entri untuk tujuan jaringan tertentu dan gateway mereka (alamat perangkat berikutnya dalam jalur atau next-hop).</p>
-        
-        <p>Dari sumber Tech Layer-X (2025), routing pada dasarnya merupakan proses pemilihan jalur untuk meneruskan paket data antar jaringan yang berbeda. MikroTik RouterOS mendukung baik static routing—di mana rute didefinisikan secara manual—maupun dynamic routing—di mana rute dipelajari dan diperbarui secara otomatis menggunakan protokol routing.</p>
-        
-        <h3 class="subsection-title">Komponen Utama Routing pada MikroTik</h3>
-        <p>Dari sumber MikroTik Documentation (2024), MikroTik RouterOS menggunakan beberapa komponen utama dalam proses routing:</p>
-        
-        <div class="code-terminal">
-            <div class="code-line"><span class="keyword">RIB (Routing Information Base)</span> - Berisi semua prefix yang dipelajari dari protokol routing</div>
-            <div class="code-line comment"># Mencakup rute dari jaringan terkoneksi (connected), statis, BGP, RIP, OSPF</div>
-            <div class="code-line"><span class="keyword">FIB (Forwarding Information Base)</span> - Tabel yang digunakan router untuk meneruskan paket</div>
-            <div class="code-line comment"># Berisi rute aktif yang dipilih dari RIB</div>
-            <div class="code-line"><span class="keyword">Route</span> - Entri individual dalam tabel routing yang menunjukkan jalur ke jaringan tujuan</div>
-            <div class="code-line comment"># Berisi dst-address, gateway, distance, dan properti lainnya</div>
-        </div>
-        
-        <p>Dari sumber Cyberlab Pacific (2025), MikroTik menggunakan antarmuka Winbox GUI yang kuat untuk mengonfigurasi routing. Semua informasi routing dapat diakses melalui menu IP > Routes yang memungkinkan administrator untuk mengelola entri routing dengan mudah.</p>
-        
-        <div class="conclusion-box">
-            <p><strong>Kesimpulan:</strong> Dari 2 pendapat tersebut dapat disimpulkan bahwa routing pada MikroTik adalah proses pemilihan jalur untuk meneruskan paket data antar jaringan, yang dilakukan dengan bantuan database routing (RIB dan FIB). MikroTik RouterOS menawarkan fleksibilitas dengan mendukung baik static routing maupun dynamic routing, dan menyediakan interface GUI Winbox yang kuat untuk konfigurasi dan pengelolaan routing.</p>
-        </div>
-
-      
-<div class="container">
-    <!-- Section: Konsep Dasar Routing IP -->
-    <div class="section fade-in">
-        <h2 class="section-title">1. KONSEP DASAR ROUTING IP</h2>
-
-      
-        
-        <h3 class="subsection-title">Pengertian Routing IP</h3>
-        <p>Dari sumber MikroTik Documentation (2024), routing adalah proses pemilihan jalur untuk meneruskan paket data antar jaringan yang berbeda. Router MikroTik menjalankan proses ini dengan menyimpan semua informasi routing dalam database yang disebut RIB (Routing Information Base), yang berisi daftar entri untuk tujuan jaringan tertentu dan gateway mereka (alamat perangkat berikutnya dalam jalur atau next-hop).</p>
-        
-        <p>Dari sumber Tech Layer-X (2025), routing pada dasarnya merupakan proses pemilihan jalur untuk meneruskan paket data antar jaringan yang berbeda. MikroTik RouterOS mendukung baik static routing—di mana rute didefinisikan secara manual—maupun dynamic routing—di mana rute dipelajari dan diperbarui secara otomatis menggunakan protokol routing.</p>
-        
-
-        
-        <h3 class="subsection-title">Komponen Utama Routing pada MikroTik</h3>
-        <p>Dari sumber MikroTik Documentation (2024), MikroTik RouterOS menggunakan beberapa komponen utama dalam proses routing:</p>
-        
-        <div class="code-terminal">
-            <div class="code-line"><span class="keyword">RIB (Routing Information Base)</span> - Berisi semua prefix yang dipelajari dari protokol routing</div>
-            <div class="code-line comment"># Mencakup rute dari jaringan terkoneksi (connected), statis, BGP, RIP, OSPF</div>
-            <div class="code-line"><span class="keyword">FIB (Forwarding Information Base)</span> - Tabel yang digunakan router untuk meneruskan paket</div>
-            <div class="code-line comment"># Berisi rute aktif yang dipilih dari RIB</div>
-            <div class="code-line"><span class="keyword">Route</span> - Entri individual dalam tabel routing yang menunjukkan jalur ke jaringan tujuan</div>
-            <div class="code-line comment"># Berisi dst-address, gateway, distance, dan properti lainnya</div>
-        </div>
-        
-        <p>Dari sumber Cyberlab Pacific (2025), MikroTik menggunakan antarmuka Winbox GUI yang kuat untuk mengonfigurasi routing. Semua informasi routing dapat diakses melalui menu IP > Routes yang memungkinkan administrator untuk mengelola entri routing dengan mudah.</p>
-        
-        <div class="conclusion-box">
-            <p><strong>Kesimpulan:</strong> Dari 2 pendapat tersebut dapat disimpulkan bahwa routing pada MikroTik adalah proses pemilihan jalur untuk meneruskan paket data antar jaringan, yang dilakukan dengan bantuan database routing (RIB dan FIB). MikroTik RouterOS menawarkan fleksibilitas dengan mendukung baik static routing maupun dynamic routing, dan menyediakan interface GUI Winbox yang kuat untuk konfigurasi dan pengelolaan routing.</p>
-        </div>
 
       
 <div class="container">
@@ -2096,6 +2036,7 @@ user-drag: none;
 </script>
 
 </html>
+
 
 
 
